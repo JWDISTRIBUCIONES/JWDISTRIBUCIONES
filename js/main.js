@@ -1,15 +1,13 @@
+// --- CATÁLOGO DE PRODUCTOS ORGANIZADO POR CATEGORÍAS ---
 const products = [
+  // ==========================================
+  // 1. LÍNEA AMINOKER
+  // ==========================================
   {
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
     cat: "AMINOKER",
     img: "imagen21.jpeg",
     desc: "Tratamiento alisador capilar de 2 Litros. Paso 1 Shampoo (dilata cutícula), Paso 2 Alisador con aminoácidos y proteínas (libre de formol e hidróxido de sodio) y Paso 3 Sellante hidratante."
-  },
-  {
-    name: "Kit Aminoker Sachet Paso 1, 2 y 3 (70ml / 90ml / 90ml)",
-    cat: "AMINOKER",
-    img: "imagen15.jpeg",
-    desc: "Aminoácido + AMINOKER en sachet. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido AMINOKER y Mascarilla Sellante."
   },
   {
     name: "Kit Aminoker Profesional Paso 1, 2 y 3 (1.000 ml)",
@@ -18,11 +16,37 @@ const products = [
     desc: "Formato profesional de 1 litro. Alisado con ácidos, aminoácidos y proteínas que hidratan y alisan todo tipo de cabello."
   },
   {
+    name: "Kit Aminoker Sachet Paso 1, 2 y 3 (70ml / 90ml / 90ml)",
+    cat: "AMINOKER",
+    img: "imagen15.jpeg",
+    desc: "Aminoácido + AMINOKER en sachet. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido AMINOKER y Mascarilla Sellante."
+  },
+
+  // ==========================================
+  // 2. LÍNEA ACEITES CAPILARES
+  // ==========================================
+  {
     name: "Kerasolis Serum Nutritivo 10 Óleos (60 ml)",
     cat: "Aceites",
     img: "imagen19.jpeg",
     desc: "Exclusiva mezcla de 10 aceites naturales: Argán, Macadamia, Aguacate, Coco, Almendras, Oliva, Ricino, Semilla de Uva, Linaza y Nutrición Intensa."
   },
+  {
+    name: "Aceite Capilar Cebolla & Romero Nutribell",
+    cat: "Aceites",
+    img: "imagen0.jpeg",
+    desc: "Fortalece, regenera, aporta brillo, suavidad y controla el frizz."
+  },
+  {
+    name: "Aceite Capilar Argán Nutribell",
+    cat: "Aceites",
+    img: "imagen0.jpeg",
+    desc: "Hidrata, regenera y repara puntas abiertas retrasando el envejecimiento capilar."
+  },
+
+  // ==========================================
+  // 3. LÍNEA BOMBONERAS
+  // ==========================================
   {
     name: "Bombonera Kerasolis Bomba Rizos Activos 3 en 1 (3.200 ml)",
     cat: "Bomboneras",
@@ -35,6 +59,22 @@ const products = [
     img: "imagen17.jpeg",
     desc: "Línea completa de mascarillas de 3.200 ml disponibles en: Óleo de Argán, Cebolla, AMINOKER, Coco, Aguacate y Barro con Karité."
   },
+  {
+    name: "Bombonera Células Madres & Aminoácidos (3.500 ml)",
+    cat: "Bomboneras",
+    img: "imagen0.jpeg",
+    desc: "Tratamiento profesional para reparar profundamente el cabello maltratado por procesos químicos. Rellena la fibra capilar y aporta elasticidad."
+  },
+  {
+    name: "Bombonera Cebolla & Jengibre (3.500 ml)",
+    cat: "Bomboneras",
+    img: "imagen0.jpeg",
+    desc: "Evita la caída del cabello, fortalece el folículo piloso y estimula el crecimiento con acción antiedad."
+  },
+
+  // ==========================================
+  // 4. LÍNEA AMPOLLAS Y SHOTS
+  // ==========================================
   {
     name: "Shots Farma Belleza - Aminoácidos Reconstructores (20 ml)",
     cat: "Ampollas",
@@ -82,6 +122,56 @@ const products = [
     cat: "Ampollas",
     img: "imagen5.jpeg",
     desc: "Nutrición e hidratación intensa con placenta de ovejo. Actúa como un escudo protector contra la resequedad y el frizz."
+  },
+
+  // ==========================================
+  // 5. LÍNEA TRATAMIENTOS CAPILARES
+  // ==========================================
+  {
+    name: "Tratamiento Tono sobre Tono (Caja x 24 Sachets 30ml)",
+    cat: "Tratamientos",
+    img: "imagen0.jpeg",
+    desc: "Aporta hidratación y brillo. Protege e intensifica el color del cabello tinturado. Disponibles en Cenizo, Chocolate, Rojo, Beige Perla y Negro."
+  },
+  {
+    name: "Shampoo + Tratamiento Repolarizador Zanahoria & Aguacate (1000ml)",
+    cat: "Tratamientos",
+    img: "imagen0.jpeg",
+    desc: "Estimula el cuero cabelludo, nutre, combate la resequedad y puntas abiertas. Elaborado con jojoba, otoba y aceites naturales. 100% Natural."
+  },
+  {
+    name: "Shampoo + Tratamiento Nutritivo Banano & Miel (1000ml)",
+    cat: "Tratamientos",
+    img: "imagen0.jpeg",
+    desc: "Explosión de vitaminas capilar a base de colágeno, AMINOKER, células madres, aloe vera, placenta, miel, biotina y argán."
+  },
+  {
+    name: "Shampoo + Tratamiento Reparador Coco & Argán (1000ml)",
+    cat: "Tratamientos",
+    img: "imagen0.jpeg",
+    desc: "A base de coco, argán y leche de almendras. Nutrición, brillo y estímulo para el crecimiento capilar."
+  },
+  {
+    name: "Shampoo + Tratamiento Hidratante Células Madres (1000ml)",
+    cat: "Tratamientos",
+    img: "imagen0.jpeg",
+    desc: "Limpia, suaviza y restaura daños ocasionados por agentes externos con aloe vera y aguacate."
+  },
+
+  // ==========================================
+  // 6. LÍNEA COLORACIÓN
+  // ==========================================
+  {
+    name: "Decolorante en Polvo Perfect Blond Belotti (450g)",
+    cat: "Coloracion",
+    img: "imagen0.jpeg",
+    desc: "Polvo decolorante blanco con alto poder de aclaración. Mantiene la suavidad del cabello."
+  },
+  {
+    name: "Tinte Profesional Very Secret Colores & Sensaciones (Tubo 100 ml)",
+    cat: "Coloracion",
+    img: "imagen0.jpeg",
+    desc: "Formulado en Italia. Excelente cobertura, tonos brillantes y duraderos. Variedad de tonos naturales, rubios y fantasía."
   }
 ];
 
