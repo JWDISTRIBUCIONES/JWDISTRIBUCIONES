@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
   <title>JW Distribuciones | Belleza Profesional</title>
+  
+  <!-- Iconos de FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Vincular Capa de Estilos CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -12,6 +17,7 @@
   <div class="noise"></div>
   <div class="progress" id="progress"></div>
 
+  <!-- Encabezado -->
   <header id="header">
     <div class="nav">
       <a class="brand" href="#inicio">
@@ -37,6 +43,7 @@
   </header>
 
   <main>
+    <!-- Portada Principal -->
     <section class="hero" id="inicio">
       <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
       <div class="hero-inner">
@@ -51,15 +58,21 @@
       </div>
     </section>
 
-    <!-- CATÁLOGO CON IMÁGENES -->
+    <!-- Cinta Informativa -->
+    <div class="marquee"><div class="marquee-track">
+      <div class="marquee-item"><b>✦</b> Aminoker Keratinas</div><div class="marquee-item"><b>✦</b> Belotti Decolorantes</div><div class="marquee-item"><b>✦</b> Adara Frutos Rojos</div><div class="marquee-item"><b>✦</b> Ampollas Farma Belleza</div>
+      <div class="marquee-item"><b>✦</b> Aminoker Keratinas</div><div class="marquee-item"><b>✦</b> Belotti Decolorantes</div><div class="marquee-item"><b>✦</b> Adara Frutos Rojos</div><div class="marquee-item"><b>✦</b> Ampollas Farma Belleza</div>
+    </div></div>
+
+    <!-- Catálogo de Productos -->
     <section class="section" id="catalogo">
       <div class="heading">
         <div class="eyebrow">Catálogo Completo</div>
         <h2>Nuestros <span style="color:var(--gold2)">Productos</span></h2>
-        <p>Selecciona una categoría o busca la referencia de tu interés para solicitar asesoría vía WhatsApp.</p>
+        <p>Selecciona una categoría o busca la referencia de tu interés para solicitar asesoría y pedidos vía WhatsApp.</p>
       </div>
       <div class="toolbar">
-        <div class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" placeholder="Buscar por nombre o beneficio..." aria-label="Buscar producto"></div>
+        <div class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" placeholder="Buscar por nombre, ingrediente o beneficio..." aria-label="Buscar producto"></div>
         <div class="filters">
           <button class="filter active" data-cat="Todos">Todos</button>
           <button class="filter" data-cat="Keratinas">Keratinas</button>
@@ -73,7 +86,7 @@
       <div class="grid" id="products"></div>
     </section>
 
-    <!-- SECCIÓN DE DEMOSTRACIÓN EN VIDEO -->
+    <!-- Sección de Demostración en Video -->
     <section class="section" id="demostracion">
       <div class="heading">
         <div class="eyebrow">Demostración de Producto</div>
@@ -88,6 +101,7 @@
       </div>
     </section>
 
+    <!-- Sección de Marca -->
     <section class="luxury" id="marca">
       <div class="section lux-grid">
         <div>
@@ -95,13 +109,20 @@
           <div class="eyebrow">Garantía de Calidad</div>
           <h2>Distribuidores Directos de <span>Cosmética Capilar</span></h2>
           <p>Ofrecemos productos formulados con ingredientes de primera calidad para salones de belleza y cuidado personal en casa.</p>
+          <div class="points">
+            <div class="point"><b>Envíos Nacionales</b><span>Despachos confiables a todo el país.</span></div>
+            <div class="point"><b>Asesoría Personalizada</b><span>Atención directa vía WhatsApp para tus pedidos.</span></div>
+            <div class="point"><b>Uso Profesional</b><span>Fórmulas de alto rendimiento y brillo extremo.</span></div>
+            <div class="point"><b>Precios de Distribuidor</b><span>Excelentes márgenes para mayoristas y estilistas.</span></div>
+          </div>
         </div>
         <div class="visual-panel">
-          <img src="imagen16.jpeg" alt="Línea Aminoker">
+          <img src="imagen16.jpeg" alt="Línea Aminoker 1000ml">
         </div>
       </div>
     </section>
 
+    <!-- Contacto -->
     <section class="section" id="contacto">
       <div class="contact-box">
         <div class="eyebrow">Contacto Comercial</div>
@@ -109,6 +130,12 @@
         <p>Contáctanos directamente por WhatsApp para recibir precios al por mayor y catálogo detallado.</p>
         <div class="hero-actions">
           <a class="btn" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp (304 657 3720)</a>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a class="social" href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social" href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social" href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
     </section>
@@ -118,10 +145,11 @@
     <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
   </footer>
 
-  <a class="float-wa" href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="float-wa" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20más%20información%20del%20catálogo." target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
+  <!-- Vincular Capa de Lógica JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>
