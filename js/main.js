@@ -1,9 +1,21 @@
 const products = [
   {
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
-    cat: "Keratinas",
+    cat: "AMINOKER",
     img: "imagen21.jpeg",
     desc: "Tratamiento alisador capilar de 2 Litros. Paso 1 Shampoo (dilata cutícula), Paso 2 Alisador con aminoácidos y proteínas (libre de formol e hidróxido de sodio) y Paso 3 Sellante hidratante."
+  },
+  {
+    name: "Kit Aminoker Sachet Paso 1, 2 y 3 (70ml / 90ml / 90ml)",
+    cat: "AMINOKER",
+    img: "imagen15.jpeg",
+    desc: "Aminoácido + AMINOKER en sachet. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido AMINOKER y Mascarilla Sellante."
+  },
+  {
+    name: "Kit Aminoker Profesional Paso 1, 2 y 3 (1.000 ml)",
+    cat: "AMINOKER",
+    img: "imagen16.jpeg",
+    desc: "Formato profesional de 1 litro. Alisado con ácidos, aminoácidos y proteínas que hidratan y alisan todo tipo de cabello."
   },
   {
     name: "Kerasolis Serum Nutritivo 10 Óleos (60 ml)",
@@ -21,19 +33,7 @@ const products = [
     name: "Bomboneras Kerasolis Tratamientos Capilares Variedades (3.200 ml)",
     cat: "Bomboneras",
     img: "imagen17.jpeg",
-    desc: "Línea completa de mascarillas de 3.200 ml disponibles en: Óleo de Argán, Cebolla, Keratina, Coco, Aguacate y Barro con Karité."
-  },
-  {
-    name: "Kit Aminoker Sachet Paso 1, 2 y 3 (70ml / 90ml / 90ml)",
-    cat: "Keratinas",
-    img: "imagen15.jpeg",
-    desc: "Aminoácido + Keratina en sachet. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido Keratina y Mascarilla Sellante."
-  },
-  {
-    name: "Kit Aminoker Profesional Paso 1, 2 y 3 (1.000 ml)",
-    cat: "Keratinas",
-    img: "imagen16.jpeg",
-    desc: "Formato profesional de 1 litro. Alisado con ácidos, aminoácidos y proteínas que hidratan y alisan todo tipo de cabello."
+    desc: "Línea completa de mascarillas de 3.200 ml disponibles en: Óleo de Argán, Cebolla, AMINOKER, Coco, Aguacate y Barro con Karité."
   },
   {
     name: "Shots Farma Belleza - Aminoácidos Reconstructores (20 ml)",
