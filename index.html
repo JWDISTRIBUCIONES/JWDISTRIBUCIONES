@@ -1,371 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
-<title>JW Distribuciones | Belleza Profesional</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
-:root{
-  --bg:#050505;--bg2:#090909;--card:#0d0d0d;--card2:#121212;
-  --gold:#d7ad4b;--gold2:#f4d986;--gold3:#9b7425;
-  --white:#faf8f2;--muted:#a7a39a;--line:rgba(215,173,75,.18);
-  --ease:cubic-bezier(.2,.75,.2,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}
-body::selection{background:var(--gold);color:#050505}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-
-.noise{position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold3),var(--gold2),white);z-index:1000;box-shadow:0 0 15px rgba(215,173,75,.8)}
-
-header{position:fixed;top:0;left:0;right:0;z-index:500;transition:.45s var(--ease);border-bottom:1px solid transparent}
-header.scrolled{background:rgba(5,5,5,.88);backdrop-filter:blur(18px);border-bottom-color:var(--line);box-shadow:0 10px 40px rgba(0,0,0,.35)}
-.nav{max-width:1280px;margin:auto;height:88px;padding:10px 26px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:13px}
-.brand img{width:68px;height:52px;object-fit:contain;border-radius:8px;border:1px solid rgba(215,173,75,.4);background:#111;box-shadow:0 4px 15px rgba(0,0,0,.4)}
-.brand-name{font-weight:700;letter-spacing:3px;font-size:.96rem}
-.brand-name small{display:block;margin-top:2px;color:var(--gold2);font-size:.57rem;letter-spacing:3px}
-nav{display:flex;align-items:center;gap:24px;color:#d7d4cc;font-size:.86rem}
-nav a{position:relative;padding:10px 0}
-nav a::after{content:"";position:absolute;left:0;bottom:4px;width:0;height:1px;background:var(--gold);transition:.3s}
-nav a:hover{color:var(--gold2)} nav a:hover::after{width:100%}
-.nav-cta{padding:11px 17px;border:1px solid var(--line);border-radius:999px;color:var(--gold2);transition:.3s}
-.nav-cta:hover{background:var(--gold);color:#090909;border-color:var(--gold)}
-.header-socials{display:flex;align-items:center;gap:10px}
-.header-socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:grid;place-items:center;color:var(--gold2);transition:.25s}
-.header-socials a:hover{transform:translateY(-2px);border-color:var(--gold2);background:rgba(255,255,255,.06)}
-.menu{display:none;background:transparent;border:1px solid var(--line);color:var(--gold2);width:42px;height:42px;border-radius:50%}
-
-.hero{min-height:850px;position:relative;overflow:hidden;display:grid;place-items:center;background:
-  radial-gradient(circle at 50% 22%,rgba(215,173,75,.15),transparent 25%),
-  radial-gradient(circle at 15% 75%,rgba(215,173,75,.06),transparent 25%),
-  radial-gradient(circle at 85% 65%,rgba(215,173,75,.05),transparent 25%),#050505}
-.hero-grid{position:absolute;inset:0;opacity:.17;background-image:linear-gradient(rgba(215,173,75,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(215,173,75,.08) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(circle at center,#000 0%,transparent 72%)}
-.orb{position:absolute;border-radius:50%;pointer-events:none}
-.orb.one{width:420px;height:420px;left:-190px;top:15%;border:1px solid rgba(215,173,75,.16);box-shadow:inset 0 0 70px rgba(215,173,75,.05);animation:float 8s ease-in-out infinite}
-.orb.two{width:520px;height:520px;right:-260px;bottom:-140px;border:1px solid rgba(215,173,75,.12);animation:float 11s ease-in-out infinite reverse}
-.ring{position:absolute;width:650px;height:650px;border:1px solid rgba(215,173,75,.08);border-radius:50%;animation:spin 28s linear infinite}
-.hero-inner{position:relative;z-index:3;text-align:center;padding:130px 20px 80px;max-width:1050px}
-.hero-brand-img{width:min(380px,82vw);height:auto;max-height:220px;object-fit:contain;margin:0 auto 20px;border-radius:18px;border:1px solid rgba(215,173,75,.28);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 50px rgba(215,173,75,.1);background:#111}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);font-size:.72rem;letter-spacing:4px;font-weight:700;text-transform:uppercase}
-.eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:var(--gold3)}
-.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(3rem,6.5vw,5.8rem);line-height:.95;font-weight:600;letter-spacing:-2px;margin:18px auto 22px}
-.hero h1 span{color:var(--gold2);font-style:italic}
-.hero p{max-width:660px;margin:0 auto 34px;color:#b8b4aa;font-size:1.02rem;line-height:1.8}
-.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 23px;border-radius:999px;border:1px solid var(--gold);background:linear-gradient(135deg,#edca65,#b78629);color:#080808;font-weight:800;box-shadow:0 12px 35px rgba(215,173,75,.12);transition:.3s var(--ease)}
-.btn:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(215,173,75,.2)}
-.btn.secondary{background:rgba(255,255,255,.025);color:var(--gold2);border-color:var(--line);box-shadow:none}
-
-.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#080808}
-.marquee-track{display:flex;width:max-content;animation:marquee 25s linear infinite}
-.marquee-item{padding:17px 28px;display:flex;align-items:center;gap:20px;color:#d0ccc2;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
-.marquee-item b{color:var(--gold2);font-size:1rem}
-
-.section{max-width:1280px;margin:auto;padding:100px 26px}
-.heading{max-width:780px;margin:0 auto 48px;text-align:center}
-.heading .eyebrow{margin-bottom:12px}
-.heading h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;margin-bottom:15px}
-.heading p{color:var(--muted);line-height:1.8}
-
-.toolbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:32px;padding:13px;border:1px solid var(--line);border-radius:18px;background:rgba(15,15,15,.68);backdrop-filter:blur(12px)}
-.search-wrap{display:flex;align-items:center;gap:10px;flex:1;max-width:520px}
-.search-icon{color:var(--gold);font-size:1rem}
-.search{width:100%;border:0;outline:0;background:transparent;color:white}
-.search::placeholder{color:#777}
-.filters{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.filter{border:1px solid transparent;background:#141414;color:#999;padding:9px 13px;border-radius:999px;font-size:.75rem;transition:.25s}
-.filter.active,.filter:hover{background:rgba(215,173,75,.12);border-color:var(--line);color:var(--gold2)}
-
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{position:relative;overflow:hidden;border:1px solid rgba(215,173,75,.15);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.005));transition:.4s var(--ease);display:flex;flex-direction:column}
-.card:hover{transform:translateY(-8px);border-color:rgba(215,173,75,.45);box-shadow:0 25px 60px rgba(0,0,0,.5)}
-.card-visual{height:280px;overflow:hidden;position:relative;background:#111;display:grid;place-items:center;border-bottom:1px solid rgba(215,173,75,.1)}
-.card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.card:hover .card-visual img{transform:scale(1.06)}
-.card-body{padding:22px;display:flex;flex-direction:column;flex:1}
-.tag{color:var(--gold2);font-size:.62rem;letter-spacing:2px;font-weight:800;text-transform:uppercase}
-.card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.28rem;line-height:1.2;margin:8px 0 10px;color:#fff}
-.card p{color:#96928a;font-size:.84rem;line-height:1.65;flex:1;margin-bottom:18px}
-.card-link{color:#25d366;font-size:.82rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:.25s}
-.card-link:hover{transform:translateX(5px)}
-
-.luxury{position:relative;overflow:hidden;background:#080808;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.lux-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.lux-logo{width:min(320px,100%);height:auto;max-height:200px;object-fit:contain;border-radius:16px;background:#111;border:1px solid rgba(215,173,75,.2);margin-bottom:28px}
-.lux h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.3rem,4.5vw,4.2rem);line-height:1.05;margin-bottom:20px}
-.lux h2 span{color:var(--gold2)}
-.lux p{color:#aaa59b;line-height:1.85}
-.points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.point{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.018)}
-.point b{color:var(--gold2);display:block;margin-bottom:6px;font-size:.86rem}
-.point span{color:#858179;font-size:.78rem;line-height:1.5}
-.visual-panel{min-height:480px;border:1px solid var(--line);border-radius:25px;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(215,173,75,.13),transparent 25%),linear-gradient(145deg,#121212,#070707);overflow:hidden}
-.visual-panel img{width:220px;height:auto;object-fit:contain;border-radius:16px;box-shadow:0 0 80px rgba(215,173,75,.2)}
-
-.contact-box{position:relative;max-width:900px;margin:auto;padding:70px 30px;border:1px solid rgba(215,173,75,.28);border-radius:28px;background:radial-gradient(circle at 50% 0,rgba(215,173,75,.12),transparent 42%),#0b0b0b;text-align:center}
-.contact-box h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1;margin-bottom:16px}
-.socials{display:flex;justify-content:center;gap:12px;margin-top:24px}
-.social{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--gold2);transition:.25s}
-.social:hover{background:var(--gold);color:#050505;transform:translateY(-3px)}
-
-footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;color:#666;font-size:.78rem;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
-footer strong{color:var(--gold2)}
-
-.float-wa{position:fixed;right:22px;bottom:22px;z-index:450;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:1.6rem;box-shadow:0 15px 40px rgba(0,0,0,.4);animation:pulse 2.2s infinite;text-decoration:none}
-
-@keyframes float{50%{transform:translateY(-18px)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes marquee{to{transform:translateX(-50%)}}
-@keyframes pulse{50%{box-shadow:0 15px 40px rgba(0,0,0,.4),0 0 0 12px rgba(37,211,102,.05)}}
-
-@media(max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}.lux-grid{grid-template-columns:1fr}.header-socials{display:none}}
-@media(max-width:680px){
-  .grid{grid-template-columns:1fr}
-  .nav{height:76px;padding:8px 17px}
-  .menu{display:block}
-  nav{display:none;position:absolute;top:76px;left:12px;right:12px;padding:16px;flex-direction:column;gap:10px;background:rgba(8,8,8,.97);border:1px solid var(--line);border-radius:16px}
-  nav.open{display:flex}
-  .toolbar{flex-direction:column;align-items:stretch}
-  .filters{justify-content:flex-start}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JW Distribuciones | Belleza Profesional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<div class="noise"></div>
-<div class="progress" id="progress"></div>
+  <div class="noise"></div>
+  <div class="progress" id="progress"></div>
 
-<header id="header">
-  <div class="nav">
-    <a class="brand" href="#inicio">
-      <img src="imagen0.jpeg" alt="JW Distribuciones">
-      <div class="brand-name">JW DISTRIBUCIONES<small>BELLEZA PROFESIONAL</small></div>
-    </a>
-    <button class="menu" id="menu" aria-label="Menú">☰</button>
-    <nav id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#marca">La Marca</a>
-      <a href="#contacto">Contacto</a>
-      <a class="nav-cta" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-    </nav>
-    <div class="header-socials">
-      <a href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-    </div>
-  </div>
-</header>
-
-<main>
-<section class="hero" id="inicio">
-  <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
-  <div class="hero-inner">
-    <img class="hero-brand-img" src="imagen0.jpeg" alt="JW Distribuciones">
-    <div class="eyebrow">CATÁLOGO OFICIAL DE PRODUCTOS CAPILARES</div>
-    <h1>Belleza y Cuidado <span>Profesional</span></h1>
-    <p>Explora nuestro catálogo completo de alisados, tratamientos, tintes, decolorantes y repolarizadores capilares.</p>
-    <div class="hero-actions">
-      <a class="btn" href="#catalogo">Ver Productos <b>→</b></a>
-      <a class="btn secondary" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Asesoría Comercial</a>
-    </div>
-  </div>
-</section>
-
-<div class="marquee"><div class="marquee-track">
-  <div class="marquee-item"><b>✦</b> Aminoker Keratinas</div><div class="marquee-item"><b>✦</b> Belotti Decolorantes</div><div class="marquee-item"><b>✦</b> Adara Frutos Rojos</div><div class="marquee-item"><b>✦</b> Ampollas Farma Belleza</div>
-  <div class="marquee-item"><b>✦</b> Aminoker Keratinas</div><div class="marquee-item"><b>✦</b> Belotti Decolorantes</div><div class="marquee-item"><b>✦</b> Adara Frutos Rojos</div><div class="marquee-item"><b>✦</b> Ampollas Farma Belleza</div>
-</div></div>
-
-<section class="section" id="catalogo">
-  <div class="heading">
-    <div class="eyebrow">Catálogo Completo</div>
-    <h2>Nuestros <span style="color:var(--gold2)">Productos</span></h2>
-    <p>Selecciona una categoría o busca la referencia de tu interés para solicitar asesoría y pedidos vía WhatsApp.</p>
-  </div>
-  <div class="toolbar">
-    <div class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" placeholder="Buscar por nombre, ingrediente o beneficio..." aria-label="Buscar producto"></div>
-    <div class="filters">
-      <button class="filter active" data-cat="Todos">Todos</button>
-      <button class="filter" data-cat="Keratinas">Keratinas</button>
-      <button class="filter" data-cat="Tratamientos">Tratamientos</button>
-      <button class="filter" data-cat="Aceites">Aceites Capilares</button>
-      <button class="filter" data-cat="Ampollas">Ampollas</button>
-      <button class="filter" data-cat="Coloracion">Coloración</button>
-      <button class="filter" data-cat="Bomboneras">Bomboneras 3.5L</button>
-      <button class="filter" data-cat="Ninos">Línea Infantil</button>
-    </div>
-  </div>
-  <div class="grid" id="products"></div>
-</section>
-
-<section class="luxury" id="marca">
-  <div class="section lux-grid">
-    <div>
-      <img class="lux-logo" src="imagen0.jpeg" alt="Logo JW Distribuciones">
-      <div class="eyebrow">Garantía de Calidad</div>
-      <h2>Distribuidores Directos de <span>Cosmética Capilar</span></h2>
-      <p>Ofrecemos productos formulados con ingredientes de primera calidad para salones de belleza y cuidado personal en casa.</p>
-      <div class="points">
-        <div class="point"><b>Envíos Nacionales</b><span>Despachos confiables a todo el país.</span></div>
-        <div class="point"><b>Asesoría Personalizada</b><span>Atención directa vía WhatsApp para tus pedidos.</span></div>
-        <div class="point"><b>Uso Profesional</b><span>Fórmulas de alto rendimiento y brillo extremo.</span></div>
-        <div class="point"><b>Precios de Distribuidor</b><span>Excelentes márgenes para mayoristas y estilistas.</span></div>
+  <header id="header">
+    <div class="nav">
+      <a class="brand" href="#inicio">
+        <img src="imagen0.jpeg" alt="JW Distribuciones">
+        <div class="brand-name">JW DISTRIBUCIONES<small>BELLEZA PROFESIONAL</small></div>
+      </a>
+      <button class="menu" id="menu" aria-label="Menú">☰</button>
+      <nav id="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#demostracion">Demostración</a>
+        <a href="#marca">La Marca</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </nav>
+      <div class="header-socials">
+        <a href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="visual-panel">
-      <img src="imagen1.jpeg" alt="Línea Aminoker">
-    </div>
-  </div>
-</section>
+  </header>
 
-<section class="section" id="contacto">
-  <div class="contact-box">
-    <div class="eyebrow">Contacto Comercial</div>
-    <h2>¿Necesitas hacer un pedido?</h2>
-    <p>Contáctanos directamente por WhatsApp para recibir precios al por mayor y catálogo detallado.</p>
-    <div class="hero-actions">
-      <a class="btn" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp (304 657 3720)</a>
-    </div>
-    <div class="socials">
-      <a class="social" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
-      <a class="social" href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-      <a class="social" href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-      <a class="social" href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
-</footer>
-
-<a class="float-wa" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20más%20información%20del%20catálogo." target="_blank" rel="noopener" aria-label="WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<script>
-const products = [
-  {name: "Kit Aminoker Paso 1, 2 y 3 (2.000 ml / 1.000 ml / 70 ml)", cat: "Keratinas", img: "imagen1.jpeg", desc: "Aminoácido + Keratina. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido Keratina y Mascarilla Sellante."},
-  {name: "Ampolla Placenta & Germen de Trigo (The Pearl Collection)", cat: "Ampollas", img: "imagen2.jpeg", desc: "Tratamiento intensivo tópico con proteína de seda, germen de trigo, karité y filtro UV. Aporta nutrición, moldeamiento y suavidad."},
-  {name: "Tratamiento Tono sobre Tono (Caja x 24 Sachets 30ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Aporta hidratación y brillo. Protege e intensifica el color del cabello tinturado. Disponibles en Cenizo, Chocolate, Rojo, Beige Perla y Negro."},
-  {name: "Shampoo + Tratamiento Repolarizador Zanahoria & Aguacate (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Estimula el cuero cabelludo, nutre, combate la resequedad y puntas abiertas. Elaborado con jojoba, otoba y aceites naturales. 100% Natural."},
-  {name: "Shampoo + Tratamiento Nutritivo Banano & Miel (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Explosión de vitaminas capilar a base de colágeno, keratina, células madres, aloe vera, placenta, miel, biotina y argán."},
-  {name: "Shampoo + Tratamiento Reparador Coco & Argán (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "A base de coco, argán y leche de almendras. Nutrición, brillo y estímulo para el crecimiento capilar."},
-  {name: "Shampoo + Tratamiento Hidratante Células Madres & Té Verde (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Limpia, suave y restaura daños ocasionados por agentes externos con aloe vera y aguacate."},
-  {name: "Shampoo Sellante de Cutícula + Tratamiento (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Con extracto de biotina y aloe vera. Sin sal. Combate resequedad y sella la fibra capilar."},
-  {name: "Shampoo + Tratamiento Ajo & Cebolla Morada (1000ml / 500ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Previene la caída y estimula el crecimiento capilar. Enriquecido con keratina y vitamina E."},
-  {name: "Shampoo Profesional JW (Pote 4.000 ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Uso profesional en gran formato. Libre de sal. Limpia, nutre, suaviza y restaura."},
-  {name: "Bombonera Células Madres & Aminoácidos (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Tratamiento profesional para reparar profundamente el cabello maltratado por procesos químicos. Rellena la fibra capilar y aporta elasticidad."},
-  {name: "Bombonera Cebolla & Jengibre (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Evita la caída del cabello, fortalece el folículo piloso y estimula el crecimiento con acción antiedad."},
-  {name: "Bombonera La Crespa Crespísima 2 en 1 (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Crema 2 en 1 con óleo de coco, manteca de karité y semillas de linaza para definir y humectar rizos."},
-  {name: "Bombonera Coco & Argán (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Tratamiento intensivo reparador e hidratante con vitamina E y colágeno para cabellos secos y rebeldes."},
-  {name: "Bombonera Cebolla Morada (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Fórmula fortificante antiquiebre para un cabello largo, fuerte y resistente."},
-  {name: "Bombonera Mantequilla para el Pelo (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Con proteína de huevo, almidón de maíz y mantequilla. Nutre e hidrata profundamente cabellos procesados."},
-  {name: "Bombonera Bomba de Vitaminas (3.500 ml)", cat: "Bomboneras", img: "imagen0.jpeg", desc: "Cóctel de miel, colágeno, henna, placenta, aloe vera, ginseng, avena y nutrimax."},
-  {name: "Aceite Capilar Cebolla & Romero Nutribell (Caja x 24 Sachets / 240ml / 35ml)", cat: "Aceites", img: "imagen0.jpeg", desc: "Fortalece, regenera, aporta brillo, suavidad y controla el frizz."},
-  {name: "Aceite Capilar Argán Nutribell (Caja x 24 Sachets / 240ml / 35ml)", cat: "Aceites", img: "imagen0.jpeg", desc: "Hidrata, regenera y repara puntas abiertas retrasando el envejecimiento capilar."},
-  {name: "Aceite Capilar Coco Nutribell (Caja x 24 Sachets / 240ml / 35ml)", cat: "Aceites", img: "imagen0.jpeg", desc: "Termoprotector, revitalizante e hidratante para la fibra capilar."},
-  {name: "Laca Extrafuerte Color-1 (125 ml / 255 ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Excelente fijación, brillo y resistencia a la humedad para conservar el peinado por más tiempo."},
-  {name: "Silicona Capilar Interbel con Colágeno (Caja x 30/36 Sachets / Pote 120ml / 60ml)", cat: "Aceites", img: "imagen0.jpeg", desc: "Regenera y suaviza las puntas abiertas. Protege contra el sol, el aire y el calor térmico."},
-  {name: "Tintura en Crema Color-Liquid Argán & Oliva (Caja x 36 Sachets 30ml)", cat: "Coloracion", img: "imagen0.jpeg", desc: "Tintura exprés en 5 minutos con Tecnología Plex. Disponibles en Castaño y Negro."},
-  {name: "Oxigenta en Crema Belotti Professional (90 ml / 1.000 ml)", cat: "Coloracion", img: "imagen0.jpeg", desc: "Oxidante en crema para decoloración y coloración. Volúmenes 10, 20, 30 y 40."},
-  {name: "Decolorante en Polvo Perfect Blond con Argán Belotti (Pote 450g / Caja x 12 Sobres 50g)", cat: "Coloracion", img: "imagen0.jpeg", desc: "Polvo decolorante blanco con alto poder de aclaración. Mantiene la suavidad del cabello."},
-  {name: "Decolorante en Polvo Easy Blond con Proteína de Trigo Belotti (Pote 450g / Caja x 12 Sobres 50g)", cat: "Coloracion", img: "imagen0.jpeg", desc: "Polvo decolorante azul con acción protectora de proteína de trigo."},
-  {name: "Shampoo & Tratamiento Vinagre Capilar Frutos Rojos Adara (Pote 300ml / Caja x 24 Sachets 30ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Mantiene el pH óptimo del cuero cabelludo, controla la grasa, previene la caspa y sella cutículas."},
-  {name: "Shampoo & Tratamiento Leche de Zanahoria & Chontaduro Adara (Pote 300ml / Caja x 24 Sachets 30ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Termoprotector y repolarizador 2 en 1 con aceite de lino y vitamina E. Efecto antifrizz."},
-  {name: "Shampoo & Tratamiento Cabellos Rizos Adara (Pote 300ml / Caja x 24 Sachets 30ml)", cat: "Tratamientos", img: "imagen0.jpeg", desc: "Ideal para definir gajos y rizos, aporta hidratación y disminuye el volumen."},
-  {name: "Línea Infantil Chikileche de Zanahoria Adara (Pote 300ml / Caja x 24 Sachets 30ml)", cat: "Ninos", img: "imagen0.jpeg", desc: "Especial para niños mayores de 3 años. No irrita los ojos, contiene desenredante y proteína de chontaduro."},
-  {name: "Ampolla Vitamina E Papaya & Banano Tersa Cosméticos (Caja x 24 Ampollas 12ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Con D-pantenol, karité, leche de cabra y filtro UV. Ideal contra la horquilla."},
-  {name: "Ampolla Placenta de Ovejo Tersa Cosméticos (Caja x 24 Ampollas 12ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Fortalece desde la raíz con aceite de coco, karité, silicona y filtro UV."},
-  {name: "Ampolla Semilla de Lino & Almendras Tersa Cosméticos (Caja x 24 Ampollas 12ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Hidrata y moldea la fibra capilar, aporta brillo y estabilidad."},
-  {name: "Ampolla Anti-Caída Tersa Cosméticos (Caja x 24 Ampollas 12ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Evita la caída prematura y estimula el crecimiento de nuevo cabello."},
-  {name: "Ampolla Embrión de Pato, Oliva & Argán Tersa Cosméticos (Caja x 24 Ampollas 12ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Alta hidratación capilar enriquecida con ácidos grasos esenciales."},
-  {name: "Ampolla Biotina Vitamina B8 Exotic Hair (Caja x 24 Ampollas 5ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Loción anticaída que engrosa el cabello y nutre el cuero cabelludo."},
-  {name: "Ampolla Argán Oil con Filtro UV Exotic Hair (Caja x 24 Ampollas 5ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Tratamiento intensivo para cabellos maltratados por procesos químicos."},
-  {name: "Ampolla Ácido Hialurónico Farma Belleza Shots (Caja x 12 Ampollas 20ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Tratamiento revitalizante que retiene la humectación. Al contacto con agua se convierte en crema repolarizadora."},
-  {name: "Ampolla Minoxidil Farma Belleza Shots (Caja x 12 Ampollas 20ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Con Oxothiazolidinecarboxylate. Promueve la densidad capilar y estimula el crecimiento."},
-  {name: "Ampolla Semilla de Lino Farma Belleza Shots (Caja x 12 Ampollas 20ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Nutrición y elasticidad con alto poder de hidratación."},
-  {name: "Ampolla Vitamina E Farma Belleza Shots (Caja x 12 Ampollas 20ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Humectante con protector UV que previene el envejecimiento prematuro capilar."},
-  {name: "Ampolla Cubre Canas Farma Belleza Shots (Caja x 12 Ampollas 20ml)", cat: "Ampollas", img: "imagen0.jpeg", desc: "Recupera la pigmentación y disimula temporalmente las canas."},
-  {name: "Tinte Profesional Very Secret Colores & Sensaciones (Tubo 100 ml)", cat: "Coloracion", img: "imagen0.jpeg", desc: "Formulado en Italia. Excelente cobertura, tonos brillantes y duraderos. Variedad de tonos naturales, rubios y fantasía."}
-];
-
-let selectedCategory = 'Todos';
-
-const nav = document.getElementById('nav');
-const menu = document.getElementById('menu');
-const searchInput = document.getElementById('search');
-const productsGrid = document.getElementById('products');
-
-menu.addEventListener('click', () => nav.classList.toggle('open'));
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  header.classList.toggle('scrolled', window.scrollY > 30);
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  document.getElementById('progress').style.width = pct + '%';
-});
-
-document.querySelectorAll('.filter').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    selectedCategory = btn.dataset.cat;
-    renderProducts();
-  });
-});
-
-searchInput.addEventListener('input', renderProducts);
-
-function renderProducts() {
-  const q = searchInput.value.toLowerCase().trim();
-  const filtered = products.filter(p => {
-    const matchesCategory = (selectedCategory === 'Todos' || p.cat === selectedCategory);
-    const matchesSearch = (p.name + ' ' + p.desc + ' ' + p.cat).toLowerCase().includes(q);
-    return matchesCategory && matchesSearch;
-  });
-
-  if (filtered.length === 0) {
-    productsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">No se encontraron productos que coincidan con la búsqueda.</div>';
-    return;
-  }
-
-  productsGrid.innerHTML = filtered.map(p => {
-    const waUrl = `https://wa.me/573046573720?text=${encodeURIComponent('Hola JW Distribuciones, quiero consultar precio e información sobre: ' + p.name)}`;
-    return `
-      <article class="card">
-        <div class="card-visual">
-          <img src="${p.img}" alt="${p.name}" loading="lazy">
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
+      <div class="hero-inner">
+        <img class="hero-brand-img" src="imagen0.jpeg" alt="JW Distribuciones">
+        <div class="eyebrow">CATÁLOGO OFICIAL DE PRODUCTOS CAPILARES</div>
+        <h1>Belleza y Cuidado <span>Profesional</span></h1>
+        <p>Explora nuestro catálogo completo de alisados, tratamientos, tintes, decolorantes y repolarizadores capilares.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#catalogo">Ver Productos <b>→</b></a>
+          <a class="btn secondary" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Asesoría Comercial</a>
         </div>
-        <div class="card-body">
-          <span class="tag">${p.cat}</span>
-          <h3>${p.name}</h3>
-          <p>${p.desc}</p>
-          <a class="card-link" href="${waUrl}" target="_blank" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp <span>→</span>
-          </a>
-        </div>
-      </article>
-    `;
-  }).join('');
-}
+      </div>
+    </section>
 
-renderProducts();
-</script>
+    <section class="section" id="catalogo">
+      <div class="heading">
+        <div class="eyebrow">Catálogo Completo</div>
+        <h2>Nuestros <span style="color:var(--gold2)">Productos</span></h2>
+        <p>Selecciona una categoría o busca la referencia de tu interés para solicitar asesoría vía WhatsApp.</p>
+      </div>
+      <div class="toolbar">
+        <div class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" placeholder="Buscar por nombre o beneficio..." aria-label="Buscar producto"></div>
+        <div class="filters">
+          <button class="filter active" data-cat="Todos">Todos</button>
+          <button class="filter" data-cat="Keratinas">Keratinas</button>
+          <button class="filter" data-cat="Tratamientos">Tratamientos</button>
+          <button class="filter" data-cat="Aceites">Aceites Capilares</button>
+          <button class="filter" data-cat="Ampollas">Ampollas</button>
+          <button class="filter" data-cat="Coloracion">Coloración</button>
+          <button class="filter" data-cat="Bomboneras">Bomboneras 3.5L</button>
+        </div>
+      </div>
+      <div class="grid" id="products"></div>
+    </section>
+
+    <!-- SECCIÓN DEL VIDEO -->
+    <section class="section" id="demostracion">
+      <div class="heading">
+        <div class="eyebrow">Demostración en Video</div>
+        <h2>Resultados <span style="color:var(--gold2)">Profesionales</span></h2>
+        <p>Observa la aplicación y los efectos de nuestros tratamientos capilares.</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; border: 1px solid var(--gold); border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(215,173,75,0.3); background:#000;">
+        <video controls style="width: 100%; height: auto; display: block;" poster="imagen0.jpeg">
+          <source src="video.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      </div>
+    </section>
+
+    <section class="luxury" id="marca">
+      <div class="section lux-grid">
+        <div>
+          <img class="lux-logo" src="imagen0.jpeg" alt="Logo JW Distribuciones">
+          <div class="eyebrow">Garantía de Calidad</div>
+          <h2>Distribuidores Directos de <span>Cosmética Capilar</span></h2>
+          <p>Ofrecemos productos formulados con ingredientes de primera calidad para salones de belleza y cuidado personal en casa.</p>
+        </div>
+        <div class="visual-panel">
+          <img src="imagen16.jpeg" alt="Línea Aminoker">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="contact-box">
+        <div class="eyebrow">Contacto Comercial</div>
+        <h2>¿Necesitas hacer un pedido?</h2>
+        <p>Contáctanos directamente por WhatsApp para recibir precios al por mayor y catálogo detallado.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp (304 657 3720)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
