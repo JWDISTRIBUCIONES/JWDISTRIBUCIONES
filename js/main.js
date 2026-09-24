@@ -177,14 +177,14 @@ const products = [
   }
 ];
 
-// ESTADO
+// ESTADO DE LA TIENDA
 let cart = [];
 let productQuantities = {};
 let selectedCategory = 'Todos';
 
 products.forEach(p => { productQuantities[p.id] = 1; });
 
-// DOM
+// SELECCIÓN DE ELEMENTOS DOM
 const nav = document.getElementById('nav');
 const menu = document.getElementById('menu');
 const searchInput = document.getElementById('search');
@@ -200,7 +200,7 @@ const cartCountFloat = document.getElementById('cart-count-float');
 const cartTotalQty = document.getElementById('cart-total-qty');
 const sendWhatsappBtn = document.getElementById('send-whatsapp-order');
 
-// NAVEGACIÓN INDEPENDIENTE
+// CAMBIO DE VISTAS EN EL MENÚ
 function switchSection(targetSectionId) {
   document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
   document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-active'));
@@ -217,7 +217,7 @@ function switchSection(targetSectionId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// MENÚ MÓVIL
+// MENÚ MÓVIL TOGGLE
 if (menu) {
   menu.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
@@ -225,7 +225,7 @@ if (menu) {
   });
 }
 
-// FILTROS
+// FILTRADO POR CATEGORÍAS
 document.querySelectorAll('.filter').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
