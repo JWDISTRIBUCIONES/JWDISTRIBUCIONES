@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
 <title>JW Distribuciones | Belleza & Cuidado Capilar Profesional</title>
-<meta name="description" content="JW Distribuciones - Línea exclusiva de cuidado capilar profesional, alisados, ampollas bioreparadoras y tratamientos intensivos.">
+<meta name="description" content="JW Distribuciones - Cuidado capilar profesional, alisados Aminoker, ampollas bioreparadoras y tratamientos intensivos.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap');
@@ -27,14 +27,14 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--white); font-family: "DM Sans", -apple-system, BlinkMacSystemFont, Arial, sans-serif; overflow-x: hidden; line-height: 1.6; }
+body { background: var(--bg); color: var(--white); font-family: "DM Sans", -apple-system, Arial, sans-serif; overflow-x: hidden; line-height: 1.6; }
 body::selection { background: var(--gold); color: #050505; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { cursor: pointer; }
 img, video { max-width: 100%; display: block; }
 
-/* Capas de Fondo y Scroll Progress */
+/* Fondo y Scrollbar Progress */
 .noise {
   position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: .03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
@@ -45,7 +45,7 @@ img, video { max-width: 100%; display: block; }
   z-index: 1000; transition: width 0.1s linear;
 }
 
-/* Header & Navegación Principal */
+/* Header & Navegación */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
@@ -83,7 +83,7 @@ nav a:hover::after { width: 100%; }
 .nav-cta:hover { background: var(--gold); color: #050505; border-color: var(--gold); box-shadow: 0 0 20px rgba(215,173,75,.3); }
 .menu-btn { display: none; background: transparent; border: 1px solid var(--line); color: var(--gold2); width: 42px; height: 42px; border-radius: 50%; font-size: 1.2rem; }
 
-/* SECCIÓN INICIO (HERO): Marca y Showrooms de Video Exclusivamente */
+/* 1. SECCIÓN INICIO (SOLO MARCA, LOGO Y VIDEOS) */
 .hero {
   min-height: 100vh; padding: 130px 24px 80px; display: flex; flex-direction: column; align-items: center; justify-content: center;
   background: radial-gradient(circle at 50% 20%, rgba(215, 173, 75, .14), transparent 50%), #050505; text-align: center; position: relative;
@@ -94,13 +94,15 @@ nav a:hover::after { width: 100%; }
 .hero h1 span { color: var(--gold2); font-style: italic; }
 .hero-subtitle { max-width: 640px; color: var(--muted); font-size: 1.05rem; margin-bottom: 35px; font-weight: 400; line-height: 1.7; }
 
-/* Marco de Video Principal Optimizado (No se pixela) */
-.hero-video-container {
-  max-width: 380px; width: 100%; aspect-ratio: 9/16; margin: 10px auto 35px; border-radius: 24px; overflow: hidden;
-  border: 1px solid var(--line-strong); box-shadow: 0 25px 60px rgba(0,0,0,.9), 0 0 40px rgba(215,173,75,.12); background: var(--card2);
-  position: relative;
+/* Galería de Videos en Inicio */
+.hero-videos-grid {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 1000px; margin: 10px auto 35px;
 }
-.hero-video-container video { width: 100%; height: 100%; object-fit: cover; }
+.hero-video-box {
+  max-width: 300px; width: 100%; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--line-strong); box-shadow: 0 20px 50px rgba(0,0,0,.8), 0 0 30px rgba(215,173,75,.1); background: var(--card2);
+}
+.hero-video-box video { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn {
@@ -112,47 +114,37 @@ nav a:hover::after { width: 100%; }
 .btn-outline { background: rgba(255,255,255,.02); color: var(--gold2); border-color: var(--line); box-shadow: none; }
 .btn-outline:hover { background: rgba(215, 173, 75, .1); border-color: var(--gold); }
 
-/* Marquee Informativo */
+/* Marquee */
 .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #080808; }
 .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
 .marquee-item { padding: 16px 32px; display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: .75rem; letter-spacing: 2.5px; text-transform: uppercase; white-space: nowrap; }
 .marquee-item b { color: var(--gold2); }
 
-/* Secciones Generales */
+/* Secciones */
 .section { max-width: 1280px; margin: auto; padding: 100px 24px; }
 .heading { text-align: center; max-width: 720px; margin: 0 auto 50px; }
 .heading h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.1rem, 4vw, 3.4rem); margin: 10px 0; font-weight: 600; }
 .heading p { color: var(--muted); font-size: .98rem; }
 
-/* SECCIÓN KERASOL-LÍSS: Experiencia en Video */
-.video-showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.video-card {
-  border: 1px solid var(--line); border-radius: 22px; background: var(--card); overflow: hidden;
-  transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+/* 2. SECCIÓN CATÁLOGO CON MENÚ DESPLEGABLE DE PRODUCTOS */
+.catalog-nav {
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 35px;
 }
-.video-card:hover { transform: translateY(-6px); border-color: var(--line-strong); box-shadow: 0 20px 40px rgba(0,0,0,.7); }
-.video-card-media { width: 100%; height: 380px; background: var(--card2); position: relative; }
-.video-card-media video { width: 100%; height: 100%; object-fit: cover; }
-.video-card-body { padding: 24px; }
-.video-card-body h3 { font-family: "Playfair Display", serif; font-size: 1.3rem; margin: 8px 0; }
-.video-card-body p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin-bottom: 18px; }
+.cat-tab {
+  padding: 12px 24px; border-radius: 999px; border: 1px solid var(--line); background: var(--card2);
+  color: var(--muted); font-weight: 600; font-size: .88rem; transition: .3s var(--ease);
+}
+.cat-tab.active, .cat-tab:hover {
+  background: var(--gold); color: #050505; border-color: var(--gold); box-shadow: 0 5px 20px rgba(215, 173, 75, .3);
+}
 
-/* SECCIÓN CATÁLOGO: Filtros y Productos */
-.toolbar {
-  display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 45px;
-  padding: 14px 22px; border: 1px solid var(--line); border-radius: 20px; background: rgba(14,14,14,.8); backdrop-filter: blur(12px);
+.search-bar {
+  max-width: 500px; margin: 0 auto 40px; padding: 12px 20px; border: 1px solid var(--line);
+  border-radius: 999px; background: rgba(14,14,14,.9); display: flex; align-items: center; gap: 12px;
 }
-.search-box { display: flex; align-items: center; gap: 12px; flex: 1; max-width: 420px; }
 .search-input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--white); font-size: .92rem; }
-.search-input::placeholder { color: #666; }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
-.filter-btn {
-  border: 1px solid transparent; background: #181818; color: var(--muted);
-  padding: 8px 18px; border-radius: 999px; font-size: .8rem; transition: .3s var(--ease); font-weight: 500;
-}
-.filter-btn.active, .filter-btn:hover { background: rgba(215,173,75,.15); border-color: var(--line-strong); color: var(--gold2); }
 
-/* Grid de Tarjetas de Productos */
+/* Grid de Productos */
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 26px; }
 .product-card {
   border: 1px solid rgba(215,173,75,.12); border-radius: 20px; background: var(--card); overflow: hidden;
@@ -167,7 +159,6 @@ nav a:hover::after { width: 100%; }
 .product-info h3 { font-family: "Playfair Display", serif; font-size: 1.25rem; margin: 8px 0; color: var(--white); }
 .product-info p { color: var(--muted); font-size: .86rem; line-height: 1.6; flex: 1; margin-bottom: 18px; }
 .card-action { color: var(--gold2); font-size: .82rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
-.card-action:hover { text-decoration: underline; }
 
 /* Contacto y Footer */
 .contact-card {
@@ -189,7 +180,6 @@ footer strong { color: var(--gold2); }
 }
 .float-wa:hover { transform: scale(1.1); }
 
-/* Animaciones y Adaptabilidad Móvil */
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (max-width: 850px) {
   .nav { height: 72px; padding: 0 18px; }
@@ -200,8 +190,6 @@ footer strong { color: var(--gold2); }
   }
   nav.open { display: flex; }
   .menu-btn { display: block; }
-  .toolbar { flex-direction: column; align-items: stretch; }
-  .search-box { max-width: 100%; }
 }
 </style>
 </head>
@@ -210,7 +198,7 @@ footer strong { color: var(--gold2); }
 <div class="noise"></div>
 <div class="progress" id="progress"></div>
 
-<!-- Navegación Principal Organizada -->
+<!-- Navegación Principal -->
 <header id="header">
   <div class="nav">
     <a class="brand" href="#inicio">
@@ -220,263 +208,223 @@ footer strong { color: var(--gold2); }
     <button class="menu-btn" id="menuBtn" aria-label="Abrir Menú">☰</button>
     <nav id="nav">
       <a href="#inicio">Inicio</a>
-      <a href="#kerasol">Kerasol-líss</a>
-      <a href="#catalogo">Catálogo General</a>
+      <a href="#catalogo">Catálogo</a>
       <a href="#contacto" class="nav-cta">Contactar Asesor</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <!-- 1. SECCIÓN INICIO (HERO): Presentación Exclusiva de Marca y Videos de Impacto -->
+  <!-- 1. SECCIÓN INICIO: Exclusivamente Marca, Logo y Videos Promocionales -->
   <section class="hero" id="inicio">
     <div class="eyebrow">Exclusividad & Alta Cosmética Capilar</div>
     <h1>Elevando el estándar del <span>Cuidado Capilar</span></h1>
-    <p class="hero-subtitle">Distribución mayorista y al detal de productos profesionales, ampollas bioreparadoras y alisados de última generación.</p>
+    <p class="hero-subtitle">Distribución autorizada de productos profesionales, ampollas bioreparadoras y alisados de alta gama.</p>
 
-    <!-- Showcase en Video Principal de Marca (WhatsApp Video 2026-09-24.39.02 AM.mp4) -->
-    <div class="hero-video-container">
-      <video autoplay loop muted playsinline>
-        <source src="WhatsApp Video 2026-09-24.39.02 AM.mp4" type="video/mp4">
-        Tu navegador no soporta reproducción de video.
-      </video>
+    <!-- Showcase de Videos de la Marca -->
+    <div class="hero-videos-grid">
+      <div class="hero-video-box">
+        <video autoplay loop muted playsinline>
+          <source src="WhatsApp Video 2026-09-24.39.02 AM.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-video-box">
+        <video autoplay loop muted playsinline>
+          <source src="WhatsApp Video 2026-09-24 at 9.39.02 AM.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-video-box">
+        <video autoplay loop muted playsinline>
+          <source src="WhatsApp Video 2026-09-24 at 9.38.07 AM.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <div class="hero-actions">
-      <a href="#catalogo" class="btn">Ver Catálogo Completo</a>
-      <a href="#kerasol" class="btn btn-outline">Línea Kerasol-líss</a>
+      <a href="#catalogo" class="btn">Explorar Productos en Catálogo</a>
     </div>
   </section>
 
-  <!-- Marquee Informativo de Servicios -->
+  <!-- Marquee -->
   <div class="marquee">
     <div class="marquee-track">
       <div class="marquee-item"><b>JW</b> Calidad Profesional Garantizada</div>
       <div class="marquee-item">✦ Ampollas Bioreparadoras Ultra</div>
       <div class="marquee-item"><b>JW</b> Envíos Nacionales Seguros</div>
-      <div class="marquee-item">✦ Asesoría Personalizada para Salones</div>
-      <div class="marquee-item"><b>JW</b> Calidad Profesional Garantizada</div>
-      <div class="marquee-item">✦ Ampollas Bioreparadoras Ultra</div>
+      <div class="marquee-item">✦ Cuidado Capilar Avanzado</div>
     </div>
   </div>
 
-  <!-- 2. SECCIÓN DESTACADA: Línea Kerasol-líss en Video -->
-  <section class="section" id="kerasol">
-    <div class="heading">
-      <div class="eyebrow">Demostración de Producto</div>
-      <h2>Línea Kerasol-líss Bioreparación</h2>
-      <p>Tratamiento intensivo formulado con Murumuru y Semilla de Lino para devolver la salud y elasticidad al cabello.</p>
-    </div>
-
-    <div class="video-showcase-grid">
-      <!-- Video 2: Preparación de Ampolla -->
-      <article class="video-card">
-        <div class="video-card-media">
-          <video autoplay loop muted playsinline>
-            <source src="WhatsApp Video 2026-09-24 at 9.39.02 AM.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-card-body">
-          <span class="tag">Paso a Paso</span>
-          <h3>Preparación e Integración</h3>
-          <p>Observa el proceso de mezcla para lograr una crema suave e idónea para la aplicación en fibra capilar dañada.</p>
-          <a href="#contacto" class="card-action">Solicitar Kerasol-líss →</a>
-        </div>
-      </article>
-
-      <!-- Video 3: Pearl Collection Ampolletas -->
-      <article class="video-card">
-        <div class="video-card-media">
-          <video autoplay loop muted playsinline>
-            <source src="WhatsApp Video 2026-09-24 at 9.38.07 AM.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-card-body">
-          <span class="tag">Presentación Especial</span>
-          <h3>Pearl Collection Ampolletas (12ml)</h3>
-          <p>Muestra detallada de las ampolletas especializadas: Lino, Vitamina E, Anti-caída, Embrión de Pato, Ortiga y Placenta.</p>
-          <a href="#contacto" class="card-action">Consultar esta colección →</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- 3. SECCIÓN CATÁLOGO GENERAL: Organizado con Filtros y Buscador -->
+  <!-- 2. SECCIÓN CATÁLOGO CON DESPLIEGUE POR CATEGORÍAS -->
   <section class="section" id="catalogo">
     <div class="heading">
-      <div class="eyebrow">Catálogo Completo</div>
-      <h2>Nuestra Selección de Productos</h2>
-      <p>Explora nuestra gama de productos especializados por categoría o encuentra lo que buscas en el buscador.</p>
+      <div class="eyebrow">Nuestros Productos</div>
+      <h2>Catálogo Especializado</h2>
+      <p>Selecciona una categoría para desplegar los productos correspondientes:</p>
     </div>
 
-    <!-- Toolbar: Buscador y Categorías de Menú -->
-    <div class="toolbar">
-      <div class="search-box">
-        <span style="color:var(--gold)">🔍</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="Buscar producto (ej: Aminoker, Cebolla, Laca, Adara)...">
-      </div>
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="tratamientos">Tratamientos</button>
-        <button class="filter-btn" data-filter="alisados">Alisados</button>
-        <button class="filter-btn" data-filter="aceites">Aceites & Lacas</button>
-      </div>
+    <!-- Menú Desplegable de Categorías -->
+    <div class="catalog-nav">
+      <button class="cat-tab active" data-category="todos">Todos los Productos</button>
+      <button class="cat-tab" data-category="aminoker">Línea Aminoker</button>
+      <button class="cat-tab" data-category="shampoos">Shampoos & Tratamientos</button>
+      <button class="cat-tab" data-category="ampollas">Pearl Collection & Ampollas</button>
+      <button class="cat-tab" data-category="aceites">Aceites & Lacas</button>
     </div>
 
-    <!-- Grid de Productos Organizado -->
+    <!-- Buscador Integrado -->
+    <div class="search-bar">
+      <span style="color:var(--gold)">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar producto por nombre o beneficio...">
+    </div>
+
+    <!-- Grid de Productos -->
     <div class="product-grid" id="productGrid">
 
-      <!-- Product 1: Lacas y Aceites Color-1 -->
-      <article class="product-card" data-category="aceites" data-name="laca extrem extrafuerte aceite ricino coco cebolla argan color 1">
+      <!-- CATEGORÍA: AMINOKER -->
+      <article class="product-card" data-cat="aminoker" data-name="aminoker paso 2 alisado keratina aminoacido 1000ml liso extremo">
         <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.03 W AM.jpeg" alt="Lacas y Aceites Capilares Color-1" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Fijación & Aceites</span>
-          <h3>Lacas & Aceites Capilares Color-1</h3>
-          <p>Lacas de fijación Extrem y Extrafuerte (255ml/125ml/30ml) y Aceites Nutritivos de Ricino, Coco, Cebolla y Argán.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 2: JW Aloe Vera Células Madres -->
-      <article class="product-card" data-category="tratamientos" data-name="shampoo hidratante aloe vera celulas madres te verde aguacate joaco maestre jw">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (1).jpeg" alt="Línea Aloe Vera y Células Madres JW" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Hidratación Intensiva</span>
-          <h3>Línea Aloe Vera & Células Madres</h3>
-          <p>Shampoo Hidratante (1000ml / 500ml) y Tratamiento de Hidratación Profunda enriquecido con Té Verde y Aguacate.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 3: JW Bio Natural Reparador -->
-      <article class="product-card" data-category="tratamientos" data-name="shampoo bio natural repolarizador banano maiz huevo miel joaco maestre">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (6).jpeg" alt="Línea Bio Natural JW" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Nutrición & Reparación</span>
-          <h3>Línea Bio Natural (Banano & Miel)</h3>
-          <p>Shampoo Bio Natural (1000ml) y Tratamiento Repolarizador formulado con fécula de maíz y proteína de huevo.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 4: Adara Sachets Zanahoria -->
-      <article class="product-card" data-category="tratamientos" data-name="adara leche de zanahoria con chontaduro shampoo tratamiento sachet display">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (7).jpeg" alt="Sachets Adara Zanahoria y Chontaduro" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Displays & Sobres (30ml)</span>
-          <h3>Adara Zanahoria con Chontaduro</h3>
-          <p>Shampoo sin sal y Tratamiento Repolarizador/Termoprotector 2 en 1. Disponibles en sobres individuales y cajas x display.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 5: Tratamiento Capilar Cebolla y Ajo -->
-      <article class="product-card" data-category="tratamientos" data-name="tratamiento capilar cebolla morada ajo estimula crecimiento keratina vitamina e">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM.jpeg" alt="Tratamiento Capilar Cebolla y Ajo" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Estimulación de Crecimiento</span>
-          <h3>Tratamiento Cebolla Morada & Ajo</h3>
-          <p>Mascarilla capilar formulada para estimular el crecimiento del cabello, enriquecida con Keratina y Vitamina E.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 6: Shampoo 18 en 1 Color-1 -->
-      <article class="product-card" data-category="tratamientos" data-name="shampoo 18 en 1 color-1 anticaida crecimiento display sobres">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.38.02 AM.jpeg" alt="Shampoo 18 en 1 Color-1" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Fórmula Multibeneficio</span>
-          <h3>Shampoo Color-1 18 en 1</h3>
-          <p>Fórmula poderosa anti-caída y crecimiento con ortiga, ginseng, polen, quinua y complejo vitamínico.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 7: Dúo Cebolla Morada y Ajo -->
-      <article class="product-card" data-category="tratamientos" data-name="shampoo ajo cebolla morada 500ml tratamiento capilar crecimiento">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM (1).jpeg" alt="Kit Cebolla Morada y Ajo" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Kit Crecimiento</span>
-          <h3>Dúo Cebolla Morada & Ajo (500ml)</h3>
-          <p>Shampoo (500ml) y Tratamiento Capilar combinados para fortalecer el folículo piloso desde la raíz.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 8: Adara Vinagre Capilar Frutos Rojos -->
-      <article class="product-card" data-category="tratamientos" data-name="adara vinagre capilar frutos rojos acido lactico anticaspa termoprotector 300ml">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM.jpeg" alt="Adara Vinagre Capilar Frutos Rojos" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="tag">Cuidado Especializado</span>
-          <h3>Adara Vinagre Capilar (300ml)</h3>
-          <p>Shampoo sin sal y Tratamiento 2 en 1 con ácido láctico. Elimina hongos de la caspa y controla olores por químicos.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
-        </div>
-      </article>
-
-      <!-- Product 9: Aminoker Paso 2 (1000ml) -->
-      <article class="product-card" data-category="alisados" data-name="aminoker aminoacido keratina paso 2 uso profesional liso extremo 1000ml">
-        <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (2).jpeg" alt="Aminoker Paso 2 Alisado 1000ml" loading="lazy">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (2).jpeg" alt="Aminoker Paso 2 (1000ml)" loading="lazy">
         </div>
         <div class="product-info">
           <span class="tag">Alisado Profesional</span>
           <h3>Aminoker Paso 2 (1000ml)</h3>
-          <p>Aminoácido + Keratina de uso profesional para un liso extremo, eliminación de frizz y reducción de volumen.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
+          <p>Aminoácido + Keratina de uso profesional para liso extremo, anti-frizz y reducción de volumen sin formaldehído.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
         </div>
       </article>
 
-      <!-- Product 10: Kit Portátil Aminoker -->
-      <article class="product-card" data-category="alisados" data-name="aminoker kit portatil sachet pouch paso 1 shampoo paso 2 keratina paso 3 sellante">
+      <article class="product-card" data-cat="aminoker" data-name="kit aminoker portatil 3 pasos pouch sachet shampoo keratina sellante">
         <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (3).jpeg" alt="Kit Portatil Aminoker 3 Pasos" loading="lazy">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (3).jpeg" alt="Kit Portátil Aminoker" loading="lazy">
         </div>
         <div class="product-info">
-          <span class="tag">Kit Portátil Alisado</span>
-          <h3>Kit Aminoker 3 Pasos (Pouch)</h3>
-          <p>Incluye Paso 1 Shampoo Dilatador (70ml), Paso 2 Aminoácido+Keratina (90ml) y Paso 3 Sellante Capilar (90ml).</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
+          <span class="tag">Kit Portátil 3 Pasos</span>
+          <h3>Kit Aminoker Doypack</h3>
+          <p>Paso 1 Shampoo Dilatador (70ml), Paso 2 Keratina (90ml) y Paso 3 Sellante Brillo Extremo (90ml).</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
         </div>
       </article>
 
-      <!-- Product 11: JW Bio Natural Kit Familiar -->
-      <article class="product-card" data-category="tratamientos" data-name="jw joaco maestre shampoo reparador 1000ml 500ml repolarizador banano">
+      <!-- CATEGORÍA: SHAMPOOS & TRATAMIENTOS -->
+      <article class="product-card" data-cat="shampoos" data-name="shampoo bio natural repolarizador banano maiz huevo miel joaco maestre jw">
         <div class="product-thumb">
-          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (4).jpeg" alt="JW Bio Natural Kit Familiar" loading="lazy">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (6).jpeg" alt="Línea Bio Natural JW" loading="lazy">
         </div>
         <div class="product-info">
-          <span class="tag">Línea Reparadora</span>
+          <span class="tag">Reparación Intensiva</span>
+          <h3>Línea Bio Natural (Banano & Miel)</h3>
+          <p>Shampoo Reparador (1000ml) y Tratamiento Repolarizador en mascarilla a base de fécula de maíz y proteína de huevo.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="shampoo hidratante aloe vera celulas madres te verde aguacate joaco maestre jw">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (1).jpeg" alt="Línea Aloe Vera y Células Madres" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Hidratación Profunda</span>
+          <h3>Shampoo & Tratamiento Aloe Vera</h3>
+          <p>Shampoo Hidratante (1000ml / 500ml) y Tratamiento con células madres, té verde y aguacate.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="tratamiento capilar cebolla morada ajo estimula crecimiento keratina vitamina e">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM.jpeg" alt="Tratamiento Cebolla Morada y Ajo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Estimulación de Crecimiento</span>
+          <h3>Tratamiento Cebolla Morada & Ajo</h3>
+          <p>Mascarilla capilar formulada para acelerar el crecimiento del cabello, enriquecida con Keratina y Vitamina E.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="set duo shampoo cebolla morada ajo 500ml crecimiento">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM (1).jpeg" alt="Dúo Cebolla y Ajo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Kit Crecimiento</span>
+          <h3>Dúo Cebolla Morada & Ajo (500ml)</h3>
+          <p>Shampoo Crecimiento de 500ml combinado con la mascarilla capilar para revitalizar la raíz.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="adara vinagre capilar frutos rojos acido lactico anticaspa termoprotector 300ml">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM.jpeg" alt="Adara Vinagre Capilar" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Cuidado Especializado</span>
+          <h3>Adara Vinagre Capilar Frutos Rojos</h3>
+          <p>Shampoo sin sal y Tratamiento 2 en 1 (300ml) con ácido láctico para neutralizar olores y eliminar caspa.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="shampoo 18 en 1 color-1 anticaida crecimiento display sobres">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.38.02 AM.jpeg" alt="Shampoo 18 en 1 Color-1" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Sobres / Display</span>
+          <h3>Shampoo Color-1 18 en 1</h3>
+          <p>Fórmula poderosa anti-caída y crecimiento con ortiga, ginseng, polen, quinua y vitaminas A, E y D.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="shampoos" data-name="jw joaco maestre kit completo bio natural banano repolarizador 1000ml 500ml">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (4).jpeg" alt="JW Kit Completo Reparador" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Línea Familiar</span>
           <h3>JW Bio Natural Kit Completo</h3>
-          <p>Shampoo Reparador en presentaciones de 1000ml y 500ml junto al Tratamiento Repolarizador en mascarilla.</p>
-          <a href="#contacto" class="card-action">Pedir Cotización →</a>
+          <p>Shampoo Reparador en frascos de 1000ml y 500ml acompañado de la mascarilla repolarizadora.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <!-- CATEGORÍA: PEARL COLLECTION & AMPOLLAS -->
+      <article class="product-card" data-cat="ampollas" data-name="adara leche de zanahoria con chontaduro sachet display sobres 30ml">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (7).jpeg" alt="Adara Sachets Zanahoria" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Sachets 30ml</span>
+          <h3>Adara Zanahoria & Chontaduro (Display)</h3>
+          <p>Sobres individuales de Tratamiento Repolarizador/Termoprotector 2 en 1 y Shampoo acondicionador sin sal.</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
+        </div>
+      </article>
+
+      <!-- CATEGORÍA: ACEITES & LACAS -->
+      <article class="product-card" data-cat="aceites" data-name="laca extrem extrafuerte aceite ricino coco cebolla argan color 1">
+        <div class="product-thumb">
+          <img src="WhatsApp Image 2026-09-24 at 9.39.03 W AM.jpeg" alt="Lacas y Aceites Color-1" loading="lazy">
+        </div>
+        <div class="product-info">
+          <span class="tag">Fijación & Finalizado</span>
+          <h3>Lacas & Aceites Capilares Color-1</h3>
+          <p>Laca Extrem (Amarilla), Laca Extrafuerte (Roja) y Aceites de Ricino, Coco, Cebolla y Argán (35ml y 240ml).</p>
+          <a href="#contacto" class="card-action">Consultar Disponibilidad →</a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- 4. SECCIÓN CONTACTO DIRECTO -->
+  <!-- 3. SECCIÓN CONTACTO -->
   <section class="section" id="contacto">
     <div class="contact-card">
-      <h2>¿Listo para realizar tu pedido?</h2>
-      <p>Contáctanos directamente vía WhatsApp para recibir precios especiales al por mayor y atención personalizada.</p>
+      <h2>¿Deseas realizar un pedido?</h2>
+      <p>Atención directa para compras al por mayor y al detal vía WhatsApp.</p>
       <a href="https://wa.me/570000000000" target="_blank" rel="noopener" class="btn">Chatear con un Asesor en WhatsApp</a>
     </div>
   </section>
@@ -486,11 +434,10 @@ footer strong { color: var(--gold2); }
   <p>© 2026 <strong>JW Distribuciones</strong>. Todos los derechos reservados. Belleza & Cuidado Capilar Profesional.</p>
 </footer>
 
-<!-- Botón Flotante de WhatsApp -->
 <a href="https://wa.me/570000000000" target="_blank" rel="noopener" class="float-wa" aria-label="Contacto por WhatsApp">💬</a>
 
 <script>
-// Barra de progreso y dinamismo del Header
+// Barra de progreso y estilo del Header al scroll
 window.addEventListener('scroll', () => {
   const winScroll = document.documentElement.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -498,29 +445,29 @@ window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', winScroll > 40);
 });
 
-// Despliegue de Menú Móvil
+// Menú móvil
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
 menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
 
-// Motor de Búsqueda y Filtros de Productos
+// Filtrado de Productos por Menú de Categorías en Catálogo
+const catTabs = document.querySelectorAll('.cat-tab');
 const searchInput = document.getElementById('searchInput');
-const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
-function filterProducts() {
-  const query = searchInput.value.toLowerCase().trim();
-  const activeCategory = document.querySelector('.filter-btn.active').dataset.filter;
+function filterCatalog() {
+  const activeCategory = document.querySelector('.cat-tab.active').dataset.category;
+  const searchQuery = searchInput.value.toLowerCase().trim();
 
   productCards.forEach(card => {
-    const text = card.dataset.name ? card.dataset.name.toLowerCase() : '';
-    const category = card.dataset.category;
+    const cardCategory = card.dataset.cat;
+    const cardText = card.dataset.name.toLowerCase();
 
-    const matchesSearch = text.includes(query);
-    const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+    const matchesCategory = (activeCategory === 'todos' || cardCategory === activeCategory);
+    const matchesSearch = cardText.includes(searchQuery);
 
-    if (matchesSearch && matchesCategory) {
+    if (matchesCategory && matchesSearch) {
       card.style.display = 'flex';
     } else {
       card.style.display = 'none';
@@ -528,14 +475,15 @@ function filterProducts() {
   });
 }
 
-searchInput.addEventListener('input', filterProducts);
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterProducts();
+catTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    catTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    filterCatalog();
   });
 });
+
+searchInput.addEventListener('input', filterCatalog);
 </script>
 </body>
 </html>
