@@ -41,9 +41,10 @@
         <a href="#demostracion">Demostración</a>
         <a href="#marca">La Marca</a>
         <a href="#contacto">Contacto</a>
-        <a class="nav-cta" href="https://wa.me/573046573720" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
+        <button class="cart-nav-btn" id="open-cart-nav">
+          <i class="fa-solid fa-cart-shopping"></i> Carrito
+          <span class="cart-badge" id="cart-count-nav">0</span>
+        </button>
       </nav>
 
       <div class="header-socials">
@@ -113,7 +114,7 @@
       <div class="heading">
         <div class="eyebrow">CATÁLOGO COMPLETO</div>
         <h2>Nuestros <span>Productos</span></h2>
-        <p>Explora nuestras categorías, busca un producto y solicita información directamente por WhatsApp.</p>
+        <p>Selecciona los productos que deseas pedir, añádelos al carrito y envía la orden lista a WhatsApp.</p>
       </div>
 
       <div class="toolbar">
@@ -190,9 +191,33 @@
     <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
   </footer>
 
-  <a class="float-wa" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20más%20información%20del%20catálogo." target="_blank" rel="noopener" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <!-- BOTÓN FLOTANTE DEL CARRITO DE COMPRAS -->
+  <button class="float-cart-btn" id="open-cart-float" aria-label="Ver Carrito de Compras">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="float-cart-count" id="cart-count-float">0</span>
+  </button>
+
+  <!-- MODAL DEL CARRITO DE COMPRAS -->
+  <div class="cart-modal-overlay" id="cart-modal">
+    <div class="cart-modal-container">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Compras</h3>
+        <button class="close-cart" id="close-cart">&times;</button>
+      </div>
+      <div class="cart-body" id="cart-items-container">
+        <!-- Los ítems del carrito se cargarán dinámicamente aquí -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-wrap">
+          <span>Unidades Totales:</span>
+          <strong id="cart-total-qty">0</strong>
+        </div>
+        <button class="btn-checkout" id="send-whatsapp-order">
+          <i class="fa-brands fa-whatsapp"></i> Enviar Pedido a WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
