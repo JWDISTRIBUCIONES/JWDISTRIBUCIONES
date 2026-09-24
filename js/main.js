@@ -2,10 +2,24 @@
 const products = [
   {
     id: 26,
-    name: "Línea ADARA Vinagre Capilar - Shampoo & Tratamiento 2 en 1 (300 ml c/u)",
+    name: "Shampoo ADARA Vinagre Capilar Frutos Rojos (300 ml)",
     cat: "ADARA",
     img: "video2 (16).jpeg",
-    desc: "ADARA - Luz de tu Belleza. Shampoo de uso diario (a partir de 3 años) y Tratamiento 2 en 1 Repolarizador + Termoprotector. SIN SAL, SIN SULFATOS y SIN PARABENOS. Formulado con Ácido Láctico (elimina el hongo de la caspa grasa o seca) y Vinagre de Frutos Rojos (neutraliza olores por humedad o residuos químicos). Controla el pH, previene la caída y promueve el crecimiento continuo."
+    desc: "Shampoo de uso diario a partir de 3 años. SIN SAL, SIN SULFATOS y SIN PARABENOS. Con Ácido Láctico y Vinagre de Frutos Rojos. Elimina la caspa, neutraliza olores, controla el pH y fortalece el cabello."
+  },
+  {
+    id: 27,
+    name: "Tratamiento 2 en 1 ADARA Vinagre Capilar (300 ml)",
+    cat: "ADARA",
+    img: "video2 (16).jpeg",
+    desc: "Repolarizador y Termoprotector 2 en 1. Controla y neutraliza el pH del cuero cabelludo. Protege contra el calor de secadores/planchas, previene la caída y promueve el crecimiento."
+  },
+  {
+    id: 28,
+    name: "Dúo Kit ADARA Vinagre Capilar (Shampoo + Tratamiento 300ml)",
+    cat: "ADARA",
+    img: "video2 (16).jpeg",
+    desc: "Kit completo ADARA Luz de tu Belleza. Incluye Shampoo de uso diario y Tratamiento 2 en 1. Fórmula natural con Ácido Láctico y Frutos Rojos para cuidado integral capilar."
   },
   {
     id: 1,
@@ -263,12 +277,37 @@ function renderProducts() {
 
   if (!productsGrid) return;
 
-  if (filtered.length === 0) {
+  let htmlContent = '';
+
+  // SI SE SELECCIONA LA CATEGORÍA ADARA O SE BUSCA "ADARA", MOSTRAR LA TARJETA DE INFOGRAFÍA AL PRINCIPIO
+  if ((selectedCategory === 'ADARA' || q.includes('adara')) && selectedCategory !== 'Todos') {
+    htmlContent += `
+      <article class="card adara-info-card">
+        <div class="card-visual">
+          <img src="video2 (16).jpeg" alt="ADARA Luz de tu Belleza Infografía" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="tag">INFOGRAFÍA DE LÍNEA</span>
+          <h3>ADARA - Luz de tu Belleza</h3>
+          <p>Fórmula especializada para el cuidado integral del cuero cabelludo y la fibra capilar.</p>
+          <ul class="adara-bullet-list">
+            <li><i class="fa-solid fa-check"></i> Uso diario desde los 3 años de edad.</li>
+            <li><i class="fa-solid fa-check"></i> SIN SAL, SIN SULFATOS, SIN PARABENOS.</li>
+            <li><i class="fa-solid fa-check"></i> Con Ácido Láctico (elimina la caspa grasa/seca).</li>
+            <li><i class="fa-solid fa-check"></i> Con Vinagre de Frutos Rojos (neutraliza olores).</li>
+            <li><i class="fa-solid fa-check"></i> Controla el pH, previene la caída y promueve el crecimiento.</li>
+          </ul>
+        </div>
+      </article>
+    `;
+  }
+
+  if (filtered.length === 0 && htmlContent === '') {
     productsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">No se encontraron productos que coincidan con la búsqueda.</div>';
     return;
   }
 
-  productsGrid.innerHTML = filtered.map(p => {
+  htmlContent += filtered.map(p => {
     const qty = productQuantities[p.id] || 1;
     return `
       <article class="card">
@@ -296,6 +335,8 @@ function renderProducts() {
       </article>
     `;
   }).join('');
+
+  productsGrid.innerHTML = htmlContent;
 }
 
 function addToCart(productId) {
