@@ -2,24 +2,10 @@
 const products = [
   {
     id: 26,
-    name: "Shampoo ADARA Vinagre Capilar & Frutos Rojos (300 ml)",
+    name: "Línea ADARA Vinagre Capilar - Shampoo & Tratamiento 2 en 1 (300 ml c/u)",
     cat: "ADARA",
     img: "video2 (16).jpeg",
-    desc: "ADARA - Luz de tu Belleza. Shampoo de uso diario apto para toda la familia (a partir de 3 años). SIN SAL, SIN SULFATOS y SIN PARABENOS. Contiene Ácido Láctico (antimicrobiano que elimina el hongo de la caspa grasa o seca) y Vinagre de Frutos Rojos (neutraliza olores por humedad o procesos químicos). Controla el pH, previene la caída y promueve el crecimiento del cabello."
-  },
-  {
-    id: 27,
-    name: "Tratamiento 2 en 1 ADARA Vinagre Capilar (300 ml)",
-    cat: "ADARA",
-    img: "video2 (16).jpeg",
-    desc: "ADARA - Luz de tu Belleza. Tratamiento 2 en 1 Repolarizador y Termoprotector. Controla y neutraliza el pH del cuero cabelludo. Formulado con Ácido Láctico y Vinagre de Frutos Rojos. Protege contra el calor de planchas/secadores, previene la caída y estimula el crecimiento continuo del cabello."
-  },
-  {
-    id: 28,
-    name: "Dúo ADARA Vinagre Capilar (Shampoo 300ml + Tratamiento 300ml)",
-    cat: "ADARA",
-    img: "video2 (16).jpeg",
-    desc: "Kit completo de la línea ADARA - Luz de tu Belleza. Incluye Shampoo de Uso Diario + Tratamiento 2 en 1 Repolarizador y Termoprotector. Sin sal, sin sulfatos, sin parabenos. Combate la caspa, neutraliza olores, equilibra el pH y estimula el crecimiento."
+    desc: "ADARA - Luz de tu Belleza. Shampoo de uso diario (a partir de 3 años) y Tratamiento 2 en 1 Repolarizador + Termoprotector. SIN SAL, SIN SULFATOS y SIN PARABENOS. Formulado con Ácido Láctico (elimina el hongo de la caspa grasa o seca) y Vinagre de Frutos Rojos (neutraliza olores por humedad o residuos químicos). Controla el pH, previene la caída y promueve el crecimiento continuo."
   },
   {
     id: 1,
