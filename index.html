@@ -21,6 +21,7 @@
   <div class="noise"></div>
   <div class="progress" id="progress"></div>
 
+  <!-- ENCABEZADO Y NAVEGACIÓN PRINCIPAL -->
   <header id="header">
     <div class="nav">
       <a class="brand" href="#inicio" aria-label="JW Distribuciones - Inicio">
@@ -37,8 +38,8 @@
 
       <nav id="nav">
         <a href="#inicio">Inicio</a>
-        <a href="#catalogo">Catálogo</a>
         <a href="#demostracion">Demostración</a>
+        <a href="#catalogo">Catálogo</a>
         <a href="#marca">La Marca</a>
         <a href="#contacto">Contacto</a>
         <button class="cart-nav-btn" id="open-cart-nav">
@@ -57,6 +58,7 @@
   </header>
 
   <main>
+    <!-- SECCIÓN 1: INICIO Y PRESENTACIÓN PRINCIPAL -->
     <section class="hero" id="inicio">
       <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
       <div class="hero-inner">
@@ -71,17 +73,16 @@
         <h1>Belleza y Cuidado <span>Profesional</span></h1>
 
         <p>
-          Descubre nuestra selección de cosmética capilar profesional:
-          <strong>Aminoker</strong>, tratamientos, ampollas, aceites,
-          coloración y soluciones para el cuidado del cabello.
+          Bienvenido a <strong>JW Distribuciones</strong>. Descubre nuestra gama de cosmética capilar profesional:
+          <strong>Aminoker</strong>, tratamientos, ampollas, aceites, coloración y más.
         </p>
 
         <div class="hero-actions">
           <a class="btn" href="#catalogo">
-            <i class="fa-solid fa-bag-shopping"></i> Ver catálogo
+            <i class="fa-solid fa-bag-shopping"></i> Ir al Catálogo
           </a>
           <a class="btn secondary" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20información%20sobre%20sus%20productos." target="_blank" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> Asesoría comercial
+            <i class="fa-brands fa-whatsapp"></i> Asesoría Comercial
           </a>
         </div>
 
@@ -93,6 +94,7 @@
       </div>
     </section>
 
+    <!-- CINTA DE LÍNEAS DE NEGOCIO -->
     <div class="marquee">
       <div class="marquee-track">
         <div class="marquee-item"><b>✦</b> AMINOKER</div>
@@ -110,11 +112,27 @@
       </div>
     </div>
 
+    <!-- SECCIÓN 2: VIDEO DE DEMOSTRACIÓN / PRESENTACIÓN -->
+    <section class="section" id="demostracion">
+      <div class="heading">
+        <div class="eyebrow">DEMOSTRACIÓN DE PRODUCTO</div>
+        <h2>Resultados <span style="color:var(--gold2)">Reales</span></h2>
+        <p>Conoce la aplicación y los beneficios de nuestras líneas de cosmética capilar en acción.</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; border: 1px solid var(--gold); border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(215, 173, 75, 0.3); background: #030303;">
+        <video autoplay muted loop playsinline controls style="width: 100%; height: auto; display: block;" poster="imagen0.jpeg">
+          <source src="video1.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video HTML5.
+        </video>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: CATÁLOGO DE PRODUCTOS -->
     <section class="section catalog-section" id="catalogo">
       <div class="heading">
         <div class="eyebrow">CATÁLOGO COMPLETO</div>
         <h2>Nuestros <span>Productos</span></h2>
-        <p>Selecciona los productos que deseas pedir, añádelos al carrito y envía la orden lista a WhatsApp.</p>
+        <p>Indica la cantidad que deseas pedir de cada producto y agrégalos al carrito para generar tu pedido.</p>
       </div>
 
       <div class="toolbar">
@@ -135,20 +153,7 @@
       <div class="grid" id="products"></div>
     </section>
 
-    <section class="section" id="demostracion">
-      <div class="heading">
-        <div class="eyebrow">DEMOSTRACIÓN DE PRODUCTO</div>
-        <h2>Resultados <span style="color:var(--gold2)">Reales</span></h2>
-        <p>Conoce la aplicación y los beneficios de nuestras líneas de cosmética capilar en acción.</p>
-      </div>
-      <div style="max-width: 800px; margin: 0 auto; border: 1px solid var(--gold); border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(215, 173, 75, 0.3); background: #030303;">
-        <video autoplay muted loop playsinline controls style="width: 100%; height: auto; display: block;" poster="imagen0.jpeg">
-          <source src="video1.mp4" type="video/mp4">
-          Tu navegador no soporta la reproducción de video HTML5.
-        </video>
-      </div>
-    </section>
-
+    <!-- SECCIÓN 4: LA MARCA -->
     <section class="luxury" id="marca">
       <div class="section lux-grid">
         <div>
@@ -169,6 +174,7 @@
       </div>
     </section>
 
+    <!-- SECCIÓN 5: CONTACTO -->
     <section class="section" id="contacto">
       <div class="contact-box">
         <div class="eyebrow">CONTACTO COMERCIAL</div>
@@ -191,29 +197,29 @@
     <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DEL CARRITO DE COMPRAS -->
+  <!-- BOTÓN FLOTANTE DEL CARRITO -->
   <button class="float-cart-btn" id="open-cart-float" aria-label="Ver Carrito de Compras">
     <i class="fa-solid fa-cart-shopping"></i>
     <span class="float-cart-count" id="cart-count-float">0</span>
   </button>
 
-  <!-- MODAL DEL CARRITO DE COMPRAS -->
+  <!-- MODAL / EMERGENTE DEL CARRITO DE COMPRAS -->
   <div class="cart-modal-overlay" id="cart-modal">
     <div class="cart-modal-container">
       <div class="cart-header">
-        <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Compras</h3>
+        <h3><i class="fa-solid fa-cart-shopping"></i> Mi Carrito de Compras</h3>
         <button class="close-cart" id="close-cart">&times;</button>
       </div>
       <div class="cart-body" id="cart-items-container">
-        <!-- Los ítems del carrito se cargarán dinámicamente aquí -->
+        <!-- Ítems agregados dinámicamente -->
       </div>
       <div class="cart-footer">
         <div class="cart-total-wrap">
-          <span>Unidades Totales:</span>
+          <span>Total Unidades:</span>
           <strong id="cart-total-qty">0</strong>
         </div>
         <button class="btn-checkout" id="send-whatsapp-order">
-          <i class="fa-brands fa-whatsapp"></i> Enviar Pedido a WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar a WhatsApp
         </button>
       </div>
     </div>
