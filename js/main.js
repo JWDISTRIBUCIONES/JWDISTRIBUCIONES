@@ -1,6 +1,20 @@
 // --- CATÁLOGO DE PRODUCTOS ---
 const products = [
   {
+    id: 26,
+    name: "Shampoo ADARA Vinagre Capilar Frutos Rojos (300 ml)",
+    cat: "ADARA",
+    img: "video2 (16).jpeg",
+    desc: "Shampoo de uso diario para personas a partir de 3 años. Sin sal, sin sulfatos y sin parabenos. Con Ácido Láctico (elimina el hongo de la caspa) y Vinagre de frutos rojos (neutraliza olores por humedad o químicos). Previene la caída y promueve el crecimiento."
+  },
+  {
+    id: 27,
+    name: "Tratamiento 2 en 1 ADARA Vinagre Capilar (300 ml)",
+    cat: "ADARA",
+    img: "video2 (16).jpeg",
+    desc: "Repolarizador y Termoprotector 2 en 1. Controla y neutraliza el pH del cuero cabelludo. Fórmula enriquecida con Ácido Láctico y Vinagre de Frutos Rojos para prevenir la caída y estimular el crecimiento."
+  },
+  {
     id: 1,
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
     cat: "AMINOKER",
