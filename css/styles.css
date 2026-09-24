@@ -28,7 +28,7 @@ body {
   position: relative;
 }
 
-/* --- CONTROL DE VISTAS Y SECCIONES --- */
+/* --- CONTROL DE VISTAS INDEPENDIENTES --- */
 .page-section {
   display: none;
   animation: fadeIn 0.4s var(--ease) forwards;
@@ -178,19 +178,19 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 .marquee-item { padding: 18px 32px; display: flex; align-items: center; gap: 20px; color: #e2ded5; font-size: .78rem; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
 .marquee-item b { color: var(--gold2); font-size: 1.1rem; text-shadow: 0 0 10px var(--gold-glow); }
 
-/* --- CONTENEDORES COMPACTOS Y NÍTIDOS PARA VIDEOS --- */
+/* --- VIDEOS DE PRESENTACIÓN COMPACTOS Y NÍTIDOS --- */
 .videos-grid-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   flex-wrap: wrap;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .video-card-box {
-  width: min(380px, 100%);
+  width: min(250px, 100%);
   border: 1px solid var(--gold);
   border-radius: 18px;
   overflow: hidden;
@@ -206,12 +206,12 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 
 .video-card-box video {
   width: 100%;
-  max-height: 420px;
+  max-height: 380px;
   object-fit: contain;
   display: block;
 }
 
-/* --- CATÁLOGO DE PRODUCTOS Y TARJETAS --- */
+/* --- SECCIONES GENERALES --- */
 .section { max-width: 1280px; margin: auto; padding: 80px 26px; position: relative; z-index: 2; }
 .heading { max-width: 780px; margin: 0 auto 40px; text-align: center; }
 .heading h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 5.5vw, 4.2rem); line-height: 1; margin-bottom: 18px; color: #ffffff; }
@@ -237,7 +237,7 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-/* CARD BLANCA */
+/* CARD BLANCA DE PRODUCTO */
 .card {
   position: relative; overflow: hidden; border: 1px solid rgba(215, 173, 75, 0.4); border-radius: 20px;
   background: #ffffff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: .45s var(--ease);
@@ -256,7 +256,7 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 .card h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; line-height: 1.25; margin-bottom: 10px; color: #0b0b0b !important; }
 .card p { color: #333333 !important; font-size: .88rem; line-height: 1.6; flex: 1; margin-bottom: 20px; }
 
-/* SELECTOR DE CANTIDAD EN TARJETA */
+/* SELECTOR DE CANTIDAD */
 .catalog-qty-box {
   display: flex; align-items: center; justify-content: space-between; background: #f4f4f4;
   padding: 8px 12px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 14px;
