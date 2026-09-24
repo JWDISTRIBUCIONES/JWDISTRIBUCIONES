@@ -178,20 +178,35 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 .marquee-item { padding: 18px 32px; display: flex; align-items: center; gap: 20px; color: #e2ded5; font-size: .78rem; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
 .marquee-item b { color: var(--gold2); font-size: 1.1rem; text-shadow: 0 0 10px var(--gold-glow); }
 
-/* --- CONTENEDOR OPTIMIZADO PARA EL VIDEO DE PRESENTACIÓN --- */
-.video-container-wrapper {
-  max-width: 520px;
+/* --- CONTENEDORES COMPACTOS Y NÍTIDOS PARA VIDEOS --- */
+.videos-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  max-width: 900px;
   margin: 0 auto;
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(215, 173, 75, 0.25);
-  background: #030303;
 }
 
-.video-container-wrapper video {
+.video-card-box {
+  width: min(380px, 100%);
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(215, 173, 75, 0.2);
+  background: #030303;
+  transition: transform 0.3s ease;
+}
+
+.video-card-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(215, 173, 75, 0.35);
+}
+
+.video-card-box video {
   width: 100%;
-  max-height: 480px;
+  max-height: 420px;
   object-fit: contain;
   display: block;
 }
