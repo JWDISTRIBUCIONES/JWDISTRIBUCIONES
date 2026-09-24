@@ -6,117 +6,310 @@
 <title>JW Distribuciones | Alta Cosmética Capilar</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap');
 
 :root {
   --bg: #050505;
   --card: #0d0d0d;
+  --card2: #141414;
   --gold: #d7ad4b;
   --gold2: #f4d986;
   --white: #faf8f2;
   --muted: #a09c93;
   --line: rgba(215, 173, 75, 0.2);
+  --ease: cubic-bezier(.16, 1, .3, 1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--white); font-family: "DM Sans", sans-serif; line-height: 1.6; }
+body { background: var(--bg); color: var(--white); font-family: "DM Sans", -apple-system, Arial, sans-serif; line-height: 1.6; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
 
-/* Header & Menú Dropdown */
-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(5,5,5,0.92); backdrop-filter: blur(15px); border-bottom: 1px solid var(--line); }
+/* Header & Menú */
+header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(5,5,5,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--line); }
 .nav { max-width: 1280px; margin: auto; height: 80px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-avatar { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); background: #000; color: var(--gold2); display: grid; place-items: center; font-family: "Playfair Display", serif; font-weight: 700; }
 .brand-name { font-weight: 700; letter-spacing: 2px; font-size: .88rem; }
+.brand-name small { display: block; color: var(--gold2); font-size: .55rem; }
 
-/* Menú de Navegación */
-.menu { display: flex; gap: 24px; align-items: center; }
+/* Menú Desplegable */
+.menu-nav { display: flex; gap: 24px; align-items: center; }
 .dropdown { position: relative; }
-.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #121212; border: 1px solid var(--line); border-radius: 12px; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+.dropdown-btn { background: transparent; border: 0; color: var(--white); font-weight: 500; font-size: .9rem; display: flex; align-items: center; gap: 6px; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #121212; border: 1px solid var(--line); border-radius: 12px; min-width: 240px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); overflow: hidden; }
 .dropdown:hover .dropdown-menu { display: block; }
-.dropdown-menu a { display: block; padding: 12px 18px; color: var(--muted); font-size: .85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.dropdown-menu a:hover { background: rgba(215,173,75,0.1); color: var(--gold2); }
+.dropdown-menu button { display: block; width: 100%; text-align: left; padding: 12px 18px; color: var(--muted); background: transparent; border: 0; font-size: .85rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: .3s; }
+.dropdown-menu button:hover { background: rgba(215,173,75,0.15); color: var(--gold2); }
 
-/* Hero Section */
-.hero { min-height: 90vh; padding: 130px 24px 60px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.2rem, 5vw, 4.2rem); margin: 15px 0; }
+.btn-wa { display: inline-flex; align-items: center; justify-content: center; padding: 10px 22px; border-radius: 999px; background: linear-gradient(135deg, #edca65, #b78629); color: #000; font-weight: 700; font-size: .85rem; }
+
+/* Control de Vistas */
+.view { display: none; animation: fadeIn 0.4s var(--ease); }
+.view.active { display: block; }
+
+/* 1. SECCIÓN INICIO (SOLO MARCA, PRESENTACIÓN Y SERVICIOS) */
+.hero { min-height: 70vh; padding: 150px 24px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.4rem, 5vw, 4.5rem); margin: 15px 0; }
 .hero h1 span { color: var(--gold2); font-style: italic; }
-.hero p { max-width: 600px; color: var(--muted); margin-bottom: 30px; }
+.hero-subtitle { max-width: 650px; color: var(--muted); margin-bottom: 30px; font-size: 1.05rem; line-height: 1.8; }
 
-/* Galería de Videos en Portada */
-.video-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 20px auto 40px; }
-.video-box { width: 280px; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
-.video-box video { width: 100%; height: 100%; object-fit: cover; }
+/* Tarjetas de Servicios en Inicio */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1280px; margin: 40px auto 80px; padding: 0 24px; }
+.service-card { border: 1px solid var(--line); border-radius: 20px; background: var(--card); padding: 35px 25px; text-align: center; }
+.service-card h3 { font-family: "Playfair Display", serif; color: var(--gold2); margin-bottom: 12px; font-size: 1.35rem; }
+.service-card p { color: var(--muted); font-size: .92rem; }
 
-/* Tarjetas de Servicios (Asesorías y Domicilios) */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1280px; margin: 40px auto; padding: 0 24px; }
-.service-card { border: 1px solid var(--line); border-radius: 20px; background: var(--card); padding: 30px; text-align: center; }
-.service-card h3 { font-family: "Playfair Display", serif; color: var(--gold2); margin-bottom: 10px; }
+/* 2. VISTA CATÁLOGO DEDICADO */
+.catalog-container { max-width: 1280px; margin: 0 auto; padding: 120px 24px 80px; }
+.catalog-header { text-align: center; margin-bottom: 40px; }
+.catalog-header h2 { font-family: "Playfair Display", serif; font-size: 2.5rem; color: var(--white); margin-bottom: 8px; }
 
-.btn { display: inline-flex; padding: 12px 30px; border-radius: 999px; background: linear-gradient(135deg, #edca65, #b78629); color: #000; font-weight: 700; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--gold2); background: rgba(215,173,75,0.1); border: 1px solid var(--line); padding: 8px 18px; border-radius: 999px; margin-bottom: 30px; transition: .3s; }
+.back-btn:hover { background: var(--gold); color: #000; }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 26px; }
+.product-card { border: 1px solid var(--line); border-radius: 20px; background: var(--card); overflow: hidden; display: flex; flex-direction: column; }
+.product-thumb { width: 100%; height: 320px; background: var(--card2); overflow: hidden; }
+.product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+.tag { color: var(--gold2); font-size: .68rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; }
+.product-info h3 { font-family: "Playfair Display", serif; font-size: 1.25rem; margin: 8px 0; }
+.product-info p { color: var(--muted); font-size: .86rem; line-height: 1.6; flex: 1; margin-bottom: 18px; }
+
+/* Botón Flotante */
+.float-wa { position: fixed; right: 24px; bottom: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: white; display: grid; place-items: center; font-size: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,.6); z-index: 450; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a class="brand" href="index.html">
+    <a class="brand" href="#" onclick="showView('inicio')">
       <div class="brand-avatar">JW</div>
-      <div class="brand-name">JW DISTRIBUCIONES</div>
+      <div class="brand-name">JW DISTRIBUCIONES<small>BELLEZA PROFESIONAL</small></div>
     </a>
-    <div class="menu">
-      <a href="index.html" style="color:var(--gold2)">Inicio</a>
+    <div class="menu-nav">
+      <button class="dropdown-btn" onclick="showView('inicio')">Inicio</button>
+
+      <!-- Menú Desplegable de Productos -->
       <div class="dropdown">
-        <a href="#">Catálogo ▾</a>
+        <button class="dropdown-btn">Catálogo ▾</button>
         <div class="dropdown-menu">
-          <a href="aminoker.html">Línea Aminoker (Alisados)</a>
-          <a href="shampoos.html">Shampoos & Tratamientos</a>
-          <a href="ampollas.html">Pearl Collection & Sachets</a>
-          <a href="aceites-lacas.html">Aceites Capilares & Lacas</a>
+          <button onclick="showCategory('aminoker', 'Línea Alisados Aminoker')">Línea Aminoker (Alisados)</button>
+          <button onclick="showCategory('shampoos', 'Shampoos & Tratamientos Capilares')">Shampoos & Tratamientos</button>
+          <button onclick="showCategory('ampollas', 'Pearl Collection & Sachets')">Pearl Collection & Ampollas</button>
+          <button onclick="showCategory('aceites', 'Lacas Fijadoras & Aceites Capilares')">Aceites Capilares & Lacas</button>
         </div>
       </div>
-      <a href="https://wa.me/570000000000" target="_blank" class="btn" style="padding:8px 18px; font-size:.8rem;">WhatsApp Directo</a>
+
+      <a href="https://wa.me/570000000000" target="_blank" class="btn-wa">WhatsApp Directo</a>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- PRESENTACIÓN DE LA MARCA -->
-  <section class="hero">
-    <span style="color:var(--gold2); letter-spacing:3px; font-weight:700; font-size:.75rem;">BELLEZA & CUIDADO PROFESIONAL</span>
-    <h1>JW Distribuciones <span>Cosmética Capilar</span></h1>
-    <p>Distribución mayorista y al detal de productos profesionales de la más alta calidad para la salud y restauración del cabello.</p>
+  <!-- 1. SECCIÓN INICIO (PRESENTACIÓN DE MARCA Y SERVICIOS) -->
+  <section id="inicio" class="view active">
+    <div class="hero">
+      <span style="color:var(--gold2); letter-spacing:3px; font-weight:700; font-size:.75rem;">BELLEZA & CUIDADO PROFESIONAL</span>
+      <h1>JW Distribuciones <span>Cosmética Capilar</span></h1>
+      <p class="hero-subtitle">Distribución mayorista y al detal de productos profesionales de alta gama para la salud, restauración y alisado del cabello.</p>
+    </div>
 
-    <!-- Galería exclusiva de videos promocionales -->
-    <div class="video-grid">
-      <div class="video-box">
-        <video autoplay loop muted playsinline src="WhatsApp Video 2026-09-24.39.02 AM.mp4"></video>
+    <!-- Servicios Adicionales -->
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Asesoría Capilar</h3>
+        <p>Te orientamos de forma personalizada para elegir el tratamiento idóneo según la necesidad de tu cabello o salón de belleza.</p>
       </div>
-      <div class="video-box">
-        <video autoplay loop muted playsinline src="WhatsApp Video 2026-09-24 at 9.39.02 AM.mp4"></video>
+      <div class="service-card">
+        <h3>Envíos & Domicilios</h3>
+        <p>Despachos rápidos a nivel local y envíos nacionales garantizados a todo el país. Recibe tu pedido en la puerta de tu hogar o negocio.</p>
       </div>
-      <div class="video-box">
-        <video autoplay loop muted playsinline src="WhatsApp Video 2026-09-24 at 9.38.07 AM.mp4"></video>
+      <div class="service-card">
+        <h3>Ventas por Mayor & Detal</h3>
+        <p>Precios especiales para estilistas, peluquerías y distribuidores. Consulta nuestras listas de precios corporativas.</p>
       </div>
     </div>
   </section>
 
-  <!-- TARJETAS DE SERVICIOS ADICIONALES -->
-  <section class="services-grid">
-    <div class="service-card">
-      <h3> Asesoría Capilar</h3>
-      <p>Te orientamos de forma personalizada para elegir el tratamiento o producto idóneo según la necesidad de tu cabello o salón de belleza.</p>
-    </div>
-    <div class="service-card">
-      <h3> Envíos & Domicilios</h3>
-      <p>Despachos rápidos a nivel local y envíos nacionales garantizados a todo el país. Recibe tu pedido directo en tu puerta.</p>
-    </div>
-    <div class="service-card">
-      <h3> Ventas por Mayor & Detal</h3>
-      <p>Precios especiales para estilistas, peluquerías y distribuidores. Consulta nuestras listas de precios corporativas.</p>
+  <!-- 2. VISTA CATÁLOGO (SE DESPLIEGA AL ELEGIR EN EL MENÚ) -->
+  <section id="catalogo-view" class="view">
+    <div class="catalog-container">
+      <button class="back-btn" onclick="showView('inicio')">← Volver al Inicio</button>
+      
+      <div class="catalog-header">
+        <h2 id="cat-title">Categoría de Productos</h2>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+
+        <!-- LÍNEA AMINOKER -->
+        <article class="product-card" data-cat="aminoker">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (2).jpeg" alt="Aminoker Paso 2">
+          </div>
+          <div class="product-info">
+            <span class="tag">Alisado Profesional</span>
+            <h3>Aminoker Paso 2 (1000ml)</h3>
+            <p>Aminoácido + Keratina de uso profesional para liso extremo, anti-frizz e hidratación profunda.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="aminoker">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (3).jpeg" alt="Kit Aminoker Portátil">
+          </div>
+          <div class="product-info">
+            <span class="tag">Kit Portátil 3 Pasos</span>
+            <h3>Kit Aminoker Doypack</h3>
+            <p>Paso 1 Shampoo Dilatador (70ml), Paso 2 Keratina (90ml) y Paso 3 Sellante Brillo Extremo (90ml).</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <!-- LÍNEA SHAMPOOS & TRATAMIENTOS -->
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (6).jpeg" alt="Línea Bio Natural JW">
+          </div>
+          <div class="product-info">
+            <span class="tag">Reparación Intensiva</span>
+            <h3>Línea Bio Natural (Banano & Miel)</h3>
+            <p>Shampoo Reparador (1000ml) y Tratamiento Repolarizador en mascarilla a base de fécula de maíz y proteína de huevo.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (1).jpeg" alt="Línea Aloe Vera JW">
+          </div>
+          <div class="product-info">
+            <span class="tag">Hidratación Profunda</span>
+            <h3>Shampoo & Tratamiento Aloe Vera</h3>
+            <p>Shampoo Hidratante (1000ml / 500ml) y Tratamiento con células madres, té verde y aguacate.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM.jpeg" alt="Tratamiento Cebolla y Ajo">
+          </div>
+          <div class="product-info">
+            <span class="tag">Crecimiento Capilar</span>
+            <h3>Tratamiento Cebolla Morada & Ajo</h3>
+            <p>Mascarilla capilar formulada para acelerar el crecimiento del cabello, enriquecida con Keratina y Vitamina E.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM (1).jpeg" alt="Set Cebolla Morada y Ajo">
+          </div>
+          <div class="product-info">
+            <span class="tag">Kit Crecimiento</span>
+            <h3>Dúo Cebolla Morada & Ajo (500ml)</h3>
+            <p>Shampoo Crecimiento de 500ml combinado con la mascarilla capilar para revitalizar la raíz.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.02 AM.jpeg" alt="Adara Vinagre Capilar">
+          </div>
+          <div class="product-info">
+            <span class="tag">Cuidado Especializado</span>
+            <h3>Adara Vinagre Capilar Frutos Rojos</h3>
+            <p>Shampoo sin sal y Tratamiento 2 en 1 (300ml) con ácido láctico para neutralizar olores y eliminar caspa.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.38.02 AM.jpeg" alt="Shampoo 18 en 1 Color-1">
+          </div>
+          <div class="product-info">
+            <span class="tag">Sobres / Display</span>
+            <h3>Shampoo Color-1 18 en 1</h3>
+            <p>Fórmula poderosa anti-caída y crecimiento con ortiga, ginseng, polen, quinua y vitaminas A, E y D.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card" data-cat="shampoos">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.03 AM (4).jpeg" alt="JW Kit Completo Reparador">
+          </div>
+          <div class="product-info">
+            <span class="tag">Línea Familiar</span>
+            <h3>JW Bio Natural Kit Completo</h3>
+            <p>Shampoo Reparador en frascos de 1000ml y 500ml acompañado de la mascarilla repolarizadora.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <!-- PEARL COLLECTION & AMPOLLAS -->
+        <article class="product-card" data-cat="ampollas">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.04 AM (7).jpeg" alt="Adara Sachets Zanahoria">
+          </div>
+          <div class="product-info">
+            <span class="tag">Sachets 30ml</span>
+            <h3>Adara Zanahoria & Chontaduro (Display)</h3>
+            <p>Sobres individuales de Tratamiento Repolarizador/Termoprotector 2 en 1 y Shampoo acondicionador sin sal.</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+        <!-- ACEITES & LACAS -->
+        <article class="product-card" data-cat="aceites">
+          <div class="product-thumb">
+            <img src="WhatsApp Image 2026-09-24 at 9.39.03 W AM.jpeg" alt="Lacas y Aceites Color-1">
+          </div>
+          <div class="product-info">
+            <span class="tag">Fijación & Finalizado</span>
+            <h3>Lacas & Aceites Capilares Color-1</h3>
+            <p>Laca Extrem (Amarilla), Laca Extrafuerte (Roja) y Aceites de Ricino, Coco, Cebolla y Argán (35ml y 240ml).</p>
+            <a href="https://wa.me/570000000000" target="_blank" class="btn-wa" style="margin-top:auto;">Pedir por WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 </main>
 
+<a href="https://wa.me/570000000000" target="_blank" class="float-wa">💬</a>
+
+<script>
+function showView(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(viewId).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showCategory(category, titleText) {
+  showView('catalogo-view');
+  document.getElementById('cat-title').innerText = titleText;
+  
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    if (card.dataset.cat === category) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
