@@ -1,4 +1,4 @@
-// --- CATÁLOGO DE PRODUCTOS ORGANIZADO POR CATEGORÍAS ---
+// --- CATÁLOGO DE PRODUCTOS ---
 const products = [
   {
     id: 1,
@@ -177,11 +177,15 @@ const products = [
   }
 ];
 
-// --- ESTADO DEL CARRITO ---
+// --- ESTADO Y CANTIDADES DE CADA PRODUCTO ---
 let cart = [];
+let productQuantities = {};
 let selectedCategory = 'Todos';
 
-// --- ELEMENTOS DEL DOM ---
+// Inicializar cantidades predeterminadas en 1
+products.forEach(p => { productQuantities[p.id] = 1; });
+
+// DOM
 const nav = document.getElementById('nav');
 const menu = document.getElementById('menu');
 const searchInput = document.getElementById('search');
@@ -212,7 +216,7 @@ if (nav) {
   }));
 }
 
-// BARRA DE PROGRESO
+// BARRA DE PROGRESO DE DESPLAZAMIENTO
 window.addEventListener('scroll', () => {
   const h = document.documentElement;
   const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
@@ -220,7 +224,7 @@ window.addEventListener('scroll', () => {
   if (progress) progress.style.width = pct + '%';
 });
 
-// FILTROS
+// FILTROS DE CATEGORÍA
 document.querySelectorAll('.filter').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -232,7 +236,17 @@ document.querySelectorAll('.filter').forEach(btn => {
 
 if (searchInput) searchInput.addEventListener('input', renderProducts);
 
-// --- RENDERIZAR PRODUCTOS EN EL CATÁLOGO ---
+// CAMBIAR CANTIDAD A PEDIR EN EL CATÁLOGO
+function adjustCatalogQty(productId, delta) {
+  if (!productQuantities[productId]) productQuantities[productId] = 1;
+  productQuantities[productId] += delta;
+  if (productQuantities[productId] < 1) productQuantities[productId] = 1;
+
+  const qtyElement = document.getElementById(`catalog-qty-${productId}`);
+  if (qtyElement) qtyElement.textContent = productQuantities[productId];
+}
+
+// RENDERIZAR PRODUCTOS EN EL CATÁLOGO CON SELECTOR DE CANTIDAD
 function renderProducts() {
   const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const filtered = products.filter(p => {
@@ -249,6 +263,7 @@ function renderProducts() {
   }
 
   productsGrid.innerHTML = filtered.map(p => {
+    const qty = productQuantities[p.id] || 1;
     return `
       <article class="card">
         <div class="card-visual">
@@ -258,8 +273,18 @@ function renderProducts() {
           <span class="tag">${p.cat}</span>
           <h3>${p.name}</h3>
           <p>${p.desc}</p>
+          
+          <div class="catalog-qty-box">
+            <span class="qty-label">Cantidad a pedir:</span>
+            <div class="qty-controls">
+              <button onclick="adjustCatalogQty(${p.id}, -1)">-</button>
+              <span id="catalog-qty-${p.id}">${qty}</span>
+              <button onclick="adjustCatalogQty(${p.id}, 1)">+</button>
+            </div>
+          </div>
+
           <button class="card-link" onclick="addToCart(${p.id})">
-            <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+            <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
           </button>
         </div>
       </article>
@@ -267,23 +292,31 @@ function renderProducts() {
   }).join('');
 }
 
-// --- LÓGICA DEL CARRITO ---
+// AÑADIR AL CARRITO Y ABRIR MODAL
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
 
+  const qtyToAdd = productQuantities[productId] || 1;
   const existing = cart.find(item => item.id === productId);
+
   if (existing) {
-    existing.qty++;
+    existing.qty += qtyToAdd;
   } else {
-    cart.push({ ...product, qty: 1 });
+    cart.push({ ...product, qty: qtyToAdd });
   }
+
+  // Reiniciar selector de catálogo a 1
+  productQuantities[productId] = 1;
+  const qtyElement = document.getElementById(`catalog-qty-${productId}`);
+  if (qtyElement) qtyElement.textContent = 1;
 
   updateCartUI();
   openCart();
 }
 
-function changeQty(productId, delta) {
+// DENTRO DEL CARRITO
+function changeCartQty(productId, delta) {
   const item = cart.find(i => i.id === productId);
   if (!item) return;
 
@@ -300,6 +333,7 @@ function removeFromCart(productId) {
   updateCartUI();
 }
 
+// ACTUALIZAR INTERFAZ DEL CARRITO
 function updateCartUI() {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
 
@@ -310,7 +344,7 @@ function updateCartUI() {
   if (!cartItemsContainer) return;
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío.<br>Selecciona productos del catálogo.</div>';
+    cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío.<br>Selecciona la cantidad y agrega productos del catálogo.</div>';
     return;
   }
 
@@ -321,9 +355,9 @@ function updateCartUI() {
         <h4>${item.name}</h4>
         <div class="cart-item-actions">
           <div class="qty-controls">
-            <button onclick="changeQty(${item.id}, -1)">-</button>
+            <button onclick="changeCartQty(${item.id}, -1)">-</button>
             <span>${item.qty}</span>
-            <button onclick="changeQty(${item.id}, 1)">+</button>
+            <button onclick="changeCartQty(${item.id}, 1)">+</button>
           </div>
           <button class="btn-remove" onclick="removeFromCart(${item.id})">
             <i class="fa-solid fa-trash-can"></i>
@@ -334,7 +368,7 @@ function updateCartUI() {
   `).join('');
 }
 
-// APERTURA Y CIERRE DEL MODAL
+// MODAL CONTROLES
 function openCart() {
   if (cartModal) cartModal.classList.add('active');
 }
@@ -353,22 +387,22 @@ if (cartModal) {
   });
 }
 
-// ENVÍO DE PEDIDO A WHATSAPP
+// ENVIAR MENSAJE A WHATSAPP
 if (sendWhatsappBtn) {
   sendWhatsappBtn.addEventListener('click', () => {
     if (cart.length === 0) {
-      alert("Tu carrito está vacío. Añade productos antes de enviar la orden.");
+      alert("Tu carrito está vacío. Agrega productos antes de enviar la orden.");
       return;
     }
 
-    let message = "Hola JW Distribuciones, me gustaría realizar el siguiente pedido:\n\n";
+    let message = "Hola JW Distribuciones, deseo solicitar los siguientes productos:\n\n";
     cart.forEach((item, idx) => {
-      message += `${idx + 1}. *${item.name}* x ${item.qty} unidad(es)\n`;
+      message += `${idx + 1}. *${item.name}* — Cantidad: ${item.qty} unidad(es)\n`;
     });
 
     const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-    message += `\n*Total de Unidades:* ${totalItems}\n`;
-    message += "\nPor favor confírmenme disponiblidad y valores. ¡Gracias!";
+    message += `\n*Unidades Totales:* ${totalItems}\n`;
+    message += "\nPor favor confírmenme disponibilidad y precio total. ¡Muchas gracias!";
 
     const waUrl = `https://wa.me/573046573720?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
