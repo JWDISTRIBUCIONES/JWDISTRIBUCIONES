@@ -200,7 +200,7 @@ const cartCountFloat = document.getElementById('cart-count-float');
 const cartTotalQty = document.getElementById('cart-total-qty');
 const sendWhatsappBtn = document.getElementById('send-whatsapp-order');
 
-// FUNCIÓN DE CAMBIO DE NAVEGACIÓN INDEPENDIENTE
+// NAVEGACIÓN INDEPENDIENTE
 function switchSection(targetSectionId) {
   document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
   document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-active'));
@@ -217,7 +217,7 @@ function switchSection(targetSectionId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// NAVEGACIÓN MÓVIL
+// MENÚ MÓVIL
 if (menu) {
   menu.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
@@ -225,7 +225,7 @@ if (menu) {
   });
 }
 
-// FILTROS DE CATEGORÍA
+// FILTROS
 document.querySelectorAll('.filter').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
