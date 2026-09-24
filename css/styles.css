@@ -178,7 +178,7 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 .marquee-item { padding: 18px 32px; display: flex; align-items: center; gap: 20px; color: #e2ded5; font-size: .78rem; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
 .marquee-item b { color: var(--gold2); font-size: 1.1rem; text-shadow: 0 0 10px var(--gold-glow); }
 
-/* --- VIDEOS DE PRESENTACIÓN COMPACTOS Y NÍTIDOS --- */
+/* --- VIDEOS DE PRESENTACIÓN --- */
 .videos-grid-container {
   display: flex;
   justify-content: center;
@@ -237,16 +237,43 @@ nav a.nav-active::after, nav a:hover::after { width: 100%; }
 
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-/* CARD BLANCA DE PRODUCTO */
+/* CARD BLANCA DE PRODUCTO Y BANNER DE INFOGRAFÍA */
 .card {
   position: relative; overflow: hidden; border: 1px solid rgba(215, 173, 75, 0.4); border-radius: 20px;
   background: #ffffff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: .45s var(--ease);
   display: flex; flex-direction: column;
 }
 .card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(215, 173, 75, 0.25); }
-.card-visual { height: 280px; overflow: hidden; position: relative; background: #ffffff; display: grid; place-items: center; border-bottom: 1px solid rgba(215, 173, 75, 0.2); }
-.card-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
-.card:hover .card-visual img { transform: scale(1.06); }
+
+/* TARJETA INFOGRAFÍA DESTACADA ADARA */
+.card.adara-info-card {
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%) !important;
+}
+.card.adara-info-card .card-body h3 { color: var(--gold2) !important; }
+.card.adara-info-card .card-body p { color: #e0ded8 !important; }
+.adara-bullet-list { list-style: none; margin: 15px 0; text-align: left; }
+.adara-bullet-list li { color: #f4d986; font-size: .88rem; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+.adara-bullet-list li i { color: var(--gold); margin-top: 3px; }
+
+.card-visual { 
+  height: 380px; 
+  overflow: hidden; 
+  position: relative; 
+  background: #ffffff; 
+  display: grid; 
+  place-items: center; 
+  border-bottom: 1px solid rgba(215, 173, 75, 0.2); 
+  padding: 10px;
+}
+
+.card-visual img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  transition: transform .6s var(--ease); 
+}
+.card:hover .card-visual img { transform: scale(1.04); }
 
 .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
 .tag {
