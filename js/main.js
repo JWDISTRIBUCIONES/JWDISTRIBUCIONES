@@ -177,12 +177,11 @@ const products = [
   }
 ];
 
-// --- ESTADO Y CANTIDADES DE CADA PRODUCTO ---
+// ESTADO
 let cart = [];
 let productQuantities = {};
 let selectedCategory = 'Todos';
 
-// Inicializar cantidades predeterminadas en 1
 products.forEach(p => { productQuantities[p.id] = 1; });
 
 // DOM
@@ -201,6 +200,23 @@ const cartCountFloat = document.getElementById('cart-count-float');
 const cartTotalQty = document.getElementById('cart-total-qty');
 const sendWhatsappBtn = document.getElementById('send-whatsapp-order');
 
+// FUNCIÓN DE CAMBIO DE NAVEGACIÓN INDEPENDIENTE
+function switchSection(targetSectionId) {
+  document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
+  document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-active'));
+
+  const targetSec = document.getElementById(`section-${targetSectionId}`);
+  if (targetSec) targetSec.classList.add('active-section');
+
+  const targetLink = document.querySelector(`.nav-link[data-sec="${targetSectionId}"]`);
+  if (targetLink) targetLink.classList.add('nav-active');
+
+  if (nav) nav.classList.remove('open');
+  if (menu) menu.setAttribute('aria-expanded', 'false');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // NAVEGACIÓN MÓVIL
 if (menu) {
   menu.addEventListener('click', () => {
@@ -208,21 +224,6 @@ if (menu) {
     menu.setAttribute('aria-expanded', isOpen);
   });
 }
-
-if (nav) {
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    if (menu) menu.setAttribute('aria-expanded', 'false');
-  }));
-}
-
-// BARRA DE PROGRESO DE DESPLAZAMIENTO
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  const progress = document.getElementById('progress');
-  if (progress) progress.style.width = pct + '%';
-});
 
 // FILTROS DE CATEGORÍA
 document.querySelectorAll('.filter').forEach(btn => {
@@ -236,7 +237,6 @@ document.querySelectorAll('.filter').forEach(btn => {
 
 if (searchInput) searchInput.addEventListener('input', renderProducts);
 
-// CAMBIAR CANTIDAD A PEDIR EN EL CATÁLOGO
 function adjustCatalogQty(productId, delta) {
   if (!productQuantities[productId]) productQuantities[productId] = 1;
   productQuantities[productId] += delta;
@@ -246,7 +246,6 @@ function adjustCatalogQty(productId, delta) {
   if (qtyElement) qtyElement.textContent = productQuantities[productId];
 }
 
-// RENDERIZAR PRODUCTOS EN EL CATÁLOGO CON SELECTOR DE CANTIDAD
 function renderProducts() {
   const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const filtered = products.filter(p => {
@@ -292,7 +291,6 @@ function renderProducts() {
   }).join('');
 }
 
-// AÑADIR AL CARRITO Y ABRIR MODAL
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -306,7 +304,6 @@ function addToCart(productId) {
     cart.push({ ...product, qty: qtyToAdd });
   }
 
-  // Reiniciar selector de catálogo a 1
   productQuantities[productId] = 1;
   const qtyElement = document.getElementById(`catalog-qty-${productId}`);
   if (qtyElement) qtyElement.textContent = 1;
@@ -315,7 +312,6 @@ function addToCart(productId) {
   openCart();
 }
 
-// DENTRO DEL CARRITO
 function changeCartQty(productId, delta) {
   const item = cart.find(i => i.id === productId);
   if (!item) return;
@@ -333,7 +329,6 @@ function removeFromCart(productId) {
   updateCartUI();
 }
 
-// ACTUALIZAR INTERFAZ DEL CARRITO
 function updateCartUI() {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
 
@@ -344,7 +339,7 @@ function updateCartUI() {
   if (!cartItemsContainer) return;
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío.<br>Selecciona la cantidad y agrega productos del catálogo.</div>';
+    cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío.<br>Selecciona productos e indica la cantidad.</div>';
     return;
   }
 
@@ -368,14 +363,8 @@ function updateCartUI() {
   `).join('');
 }
 
-// MODAL CONTROLES
-function openCart() {
-  if (cartModal) cartModal.classList.add('active');
-}
-
-function closeCart() {
-  if (cartModal) cartModal.classList.remove('active');
-}
+function openCart() { if (cartModal) cartModal.classList.add('active'); }
+function closeCart() { if (cartModal) cartModal.classList.remove('active'); }
 
 if (openCartNav) openCartNav.addEventListener('click', openCart);
 if (openCartFloat) openCartFloat.addEventListener('click', openCart);
@@ -387,7 +376,6 @@ if (cartModal) {
   });
 }
 
-// ENVIAR MENSAJE A WHATSAPP
 if (sendWhatsappBtn) {
   sendWhatsappBtn.addEventListener('click', () => {
     if (cart.length === 0) {
