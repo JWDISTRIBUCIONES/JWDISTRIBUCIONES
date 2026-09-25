@@ -57,7 +57,7 @@
   </header>
 
   <main>
-    <!-- VISTA 1: INICIO Y PRESENTACIÓN / VIDEOS -->
+    <!-- VISTA 1: INICIO Y PRESENTACIÓN / VIDEOS (CONSERVADO INTACTO) -->
     <div id="section-inicio" class="page-section active-section">
       <section class="hero">
         <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
@@ -153,13 +153,13 @@
       </section>
     </div>
 
-    <!-- VISTA 2: CATÁLOGO DE PRODUCTOS -->
+    <!-- VISTA 2: CATÁLOGO DE PRODUCTOS (ADECUADO ESTILO MENTA HAIR) -->
     <div id="section-catalogo" class="page-section">
       <section class="section catalog-section">
         <div class="heading">
-          <div class="eyebrow">CATÁLOGO COMPLETO</div>
-          <h2>Nuestros <span>Productos</span></h2>
-          <p>Indica la cantidad que deseas pedir de cada producto y agrégalos al carrito para generar tu pedido.</p>
+          <div class="eyebrow">CATÁLOGO EXCLUSIVO</div>
+          <h2>Explora Nuestras <span>Líneas</span></h2>
+          <p>Selecciona una categoría en las burbujas para desplegar los productos o haz clic en cualquiera para ver su detalle completo.</p>
         </div>
 
         <div class="toolbar">
@@ -167,16 +167,42 @@
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <input class="search" id="search" type="search" placeholder="Buscar producto, ingrediente o beneficio..." aria-label="Buscar producto">
           </div>
-          <div class="filters">
-            <button class="filter active" data-cat="AMINOKER">AMINOKER</button>
-            <button class="filter" data-cat="Adara">Adara</button>
-            <button class="filter" data-cat="Tratamientos">Tratamientos</button>
-            <button class="filter" data-cat="Aceites">Aceites Capilares</button>
-            <button class="filter" data-cat="Ampollas">Ampollas</button>
-            <button class="filter" data-cat="Coloracion">Coloración</button>
-            <button class="filter" data-cat="Bomboneras">Bomboneras 3.5L</button>
+        </div>
+
+        <!-- CARRUSEL DE CATEGORÍAS EN CÍRCULOS (ESTILO MENTA HAIR) -->
+        <div class="categories-carousel-wrap">
+          <div class="categories-carousel">
+            <div class="cat-circle-item active" data-cat="AMINOKER">
+              <div class="cat-circle-img"><img src="imagen16.jpeg" alt="AMINOKER"></div>
+              <span>AMINOKER</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Adara">
+              <div class="cat-circle-img"><img src="video2 (16).jpeg" alt="Adara"></div>
+              <span>Adara</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Tratamientos">
+              <div class="cat-circle-img"><img src="imagen0.jpeg" alt="Tratamientos"></div>
+              <span>Tratamientos</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Aceites">
+              <div class="cat-circle-img"><img src="imagen19.jpeg" alt="Aceites"></div>
+              <span>Aceites</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Ampollas">
+              <div class="cat-circle-img"><img src="imagen8.jpeg" alt="Ampollas"></div>
+              <span>Ampollas</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Coloracion">
+              <div class="cat-circle-img"><img src="imagen0.jpeg" alt="Coloración"></div>
+              <span>Coloración</span>
+            </div>
+            <div class="cat-circle-item" data-cat="Bomboneras">
+              <div class="cat-circle-img"><img src="imagen18.jpeg" alt="Bomboneras"></div>
+              <span>Bomboneras</span>
+            </div>
           </div>
         </div>
+
         <div class="grid" id="products"></div>
       </section>
     </div>
@@ -251,6 +277,67 @@
         <button class="btn-checkout" id="send-whatsapp-order">
           <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar a WhatsApp
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALLE DE PRODUCTO EXPANDIBLE (ACORDEÓN COMO MENTA HAIR) -->
+  <div class="product-modal-overlay" id="product-detail-modal">
+    <div class="product-detail-container">
+      <button class="close-product-detail" id="close-product-detail">&times;</button>
+      
+      <div class="product-detail-grid">
+        <div class="product-detail-media">
+          <img id="detail-img" src="" alt="Producto">
+        </div>
+
+        <div class="product-detail-info">
+          <span class="tag" id="detail-cat">CATEGORÍA</span>
+          <h2 id="detail-title">Nombre del Producto</h2>
+          
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span>(Garantía de Calidad Profesional)</span>
+          </div>
+
+          <p class="detail-summary" id="detail-summary-text"></p>
+
+          <div class="catalog-qty-box modal-qty">
+            <span class="qty-label">Cantidad a solicitar:</span>
+            <div class="qty-controls">
+              <button id="detail-qty-minus">-</button>
+              <span id="detail-qty-val">1</span>
+              <button id="detail-qty-plus">+</button>
+            </div>
+          </div>
+
+          <button class="btn-checkout" id="detail-add-to-cart">
+            <i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO
+          </button>
+
+          <div class="accordion-group">
+            <details class="accordion-item" open>
+              <summary><i class="fa-solid fa-align-left"></i> Descripción General <i class="fa-solid fa-chevron-down arrow"></i></summary>
+              <div class="accordion-content" id="detail-accordion-desc"></div>
+            </details>
+
+            <details class="accordion-item">
+              <summary><i class="fa-solid fa-wand-magic-sparkles"></i> Beneficios Principales <i class="fa-solid fa-chevron-down arrow"></i></summary>
+              <div class="accordion-content">
+                • Fórmula profesional de alto rendimiento y eficacia comprobada.<br>
+                • Nutrición intensiva, restauración capilar y brillo espejo.<br>
+                • Libre de parabenos y componentes químicos agresivos.
+              </div>
+            </details>
+
+            <details class="accordion-item">
+              <summary><i class="fa-solid fa-hand-sparkles"></i> Modo de Aplicación <i class="fa-solid fa-chevron-down arrow"></i></summary>
+              <div class="accordion-content">
+                Aplica uniformemente sobre el cabello húmedo o seco según el producto, distribuye de medios a puntas y deja actuar para obtener resultados óptimos.
+              </div>
+            </details>
+          </div>
+        </div>
       </div>
     </div>
   </div>
