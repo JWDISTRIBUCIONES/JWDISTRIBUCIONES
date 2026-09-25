@@ -1,6 +1,6 @@
 // --- CATÁLOGO DE PRODUCTOS ---
 const products = [
-  // --- LÍNEA AMINOKER (PRIMERA CATEGORÍA) ---
+  // --- LÍNEA AMINOKER ---
   {
     id: 1,
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
@@ -46,7 +46,7 @@ const products = [
     desc: "Kit completo Adara Luz de tu Belleza. Incluye Shampoo de uso diario y Tratamiento 2 en 1. Fórmula natural con Ácido Láctico y Frutos Rojos para cuidado integral capilar."
   },
 
-  // --- NUEVA CATEGORÍA: LÍNEA JW ---
+  // --- LÍNEA JW ---
   {
     id: 29,
     name: "Tratamiento Capilar Keratina Líquida JW (500 ml)",
@@ -234,7 +234,7 @@ const products = [
   }
 ];
 
-// ESTADO DE LA TIENDA (INICIA CON AMINOKER SELECCIONADO POR DEFECTO)
+// ESTADO DE LA TIENDA
 let cart = [];
 let productQuantities = {};
 let selectedCategory = 'AMINOKER';
@@ -299,7 +299,7 @@ document.querySelectorAll('.cat-circle-item').forEach(item => {
 if (searchInput) searchInput.addEventListener('input', renderProducts);
 
 function adjustCatalogQty(productId, delta, event) {
-  if (event) event.stopPropagation(); // Evita abrir el modal al hacer clic en + / -
+  if (event) event.stopPropagation();
   if (!productQuantities[productId]) productQuantities[productId] = 1;
   productQuantities[productId] += delta;
   if (productQuantities[productId] < 1) productQuantities[productId] = 1;
