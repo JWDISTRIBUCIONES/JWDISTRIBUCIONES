@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#030303">
 
-  <meta name="description" content="JW Distribuciones - Cosmética capilar profesional. Aminoker, Adara, tratamientos, ampollas, aceites capilares, coloración y productos profesionales.">
-  <meta name="keywords" content="JW Distribuciones, Aminoker, Adara, cosmética capilar, productos capilares, tratamientos capilares, ampollas, aceites capilares, coloración">
+  <meta name="description" content="JW Distribuciones - Cosmética capilar profesional. Aminoker, tratamientos, ampollas, aceites capilares, coloración y productos profesionales.">
+  <meta name="keywords" content="JW Distribuciones, Aminoker, cosmética capilar, productos capilares, tratamientos capilares, ampollas, aceites capilares, coloración">
   <meta property="og:title" content="JW Distribuciones | Belleza Profesional">
   <meta property="og:description" content="Catálogo de cosmética capilar profesional de JW Distribuciones.">
   <meta property="og:type" content="website">
@@ -21,10 +21,9 @@
   <div class="noise"></div>
   <div class="progress" id="progress"></div>
 
-  <!-- ENCABEZADO Y NAVEGACIÓN PRINCIPAL -->
   <header id="header">
     <div class="nav">
-      <a class="brand" onclick="switchSection('inicio')" aria-label="JW Distribuciones - Inicio">
+      <a class="brand" href="#inicio" aria-label="JW Distribuciones - Inicio">
         <img src="imagen0.jpeg" alt="Logo JW Distribuciones">
         <div class="brand-name">
           JW DISTRIBUCIONES
@@ -37,14 +36,14 @@
       </button>
 
       <nav id="nav">
-        <a onclick="switchSection('inicio')" class="nav-link nav-active" data-sec="inicio">Inicio</a>
-        <a onclick="switchSection('catalogo')" class="nav-link" data-sec="catalogo">Catálogo</a>
-        <a onclick="switchSection('marca')" class="nav-link" data-sec="marca">La Marca</a>
-        <a onclick="switchSection('contacto')" class="nav-link" data-sec="contacto">Contacto</a>
-        <button class="cart-nav-btn" id="open-cart-nav">
-          <i class="fa-solid fa-cart-shopping"></i> Carrito
-          <span class="cart-badge" id="cart-count-nav">0</span>
-        </button>
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#demostracion">Demostración</a>
+        <a href="#marca">La Marca</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/573046573720" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </nav>
 
       <div class="header-socials">
@@ -57,203 +56,143 @@
   </header>
 
   <main>
-    <!-- VISTA 1: INICIO Y PRESENTACIÓN / VIDEOS -->
-    <div id="section-inicio" class="page-section active-section">
-      <section class="hero">
-        <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
-        <div class="hero-inner">
-          <div class="hero-logo-wrap">
-            <img class="hero-brand-img" src="imagen0.jpeg" alt="JW Distribuciones">
-          </div>
-
-          <div class="eyebrow">
-            <span></span> PRESENTACIÓN OFICIAL <span></span>
-          </div>
-
-          <h1>Belleza y Cuidado <span>Profesional</span></h1>
-
-          <p>
-            Bienvenido a <strong>JW Distribuciones</strong>. Descubre nuestra línea exclusiva de cosmética capilar profesional:
-            <strong>Aminoker</strong>, <strong>Adara</strong>, tratamientos, ampollas, aceites y coloración.
-          </p>
-
-          <div class="hero-actions">
-            <button class="btn" onclick="switchSection('catalogo')">
-              <i class="fa-solid fa-bag-shopping"></i> Ir al Catálogo
-            </button>
-            <a class="btn secondary" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20información%20sobre%20sus%20productos." target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp"></i> Asesoría Comercial
-            </a>
-          </div>
-
-          <div class="hero-trust">
-            <div><i class="fa-solid fa-box"></i><span>Catálogo profesional</span></div>
-            <div><i class="fa-solid fa-truck-fast"></i><span>Envíos nacionales</span></div>
-            <div><i class="fa-solid fa-comments"></i><span>Atención por WhatsApp</span></div>
-          </div>
+    <section class="hero" id="inicio">
+      <div class="hero-grid"></div><div class="orb one"></div><div class="orb two"></div><div class="ring"></div>
+      <div class="hero-inner">
+        <div class="hero-logo-wrap">
+          <img class="hero-brand-img" src="imagen0.jpeg" alt="JW Distribuciones">
         </div>
-      </section>
 
-      <div class="marquee">
-        <div class="marquee-track">
-          <div class="marquee-item"><b>✦</b> AMINOKER</div>
-          <div class="marquee-item"><b>✦</b> LÍNEA ADARA</div>
-          <div class="marquee-item"><b>✦</b> TRATAMIENTOS CAPILARES</div>
-          <div class="marquee-item"><b>✦</b> AMPOLLAS</div>
-          <div class="marquee-item"><b>✦</b> ACEITES CAPILARES</div>
-          <div class="marquee-item"><b>✦</b> COLORACIÓN</div>
-          <div class="marquee-item"><b>✦</b> BOMBONERAS</div>
-          <div class="marquee-item"><b>✦</b> AMINOKER</div>
-          <div class="marquee-item"><b>✦</b> LÍNEA ADARA</div>
-          <div class="marquee-item"><b>✦</b> TRATAMIENTOS CAPILARES</div>
-          <div class="marquee-item"><b>✦</b> AMPOLLAS</div>
-          <div class="marquee-item"><b>✦</b> ACEITES CAPILARES</div>
-          <div class="marquee-item"><b>✦</b> COLORACIÓN</div>
-          <div class="marquee-item"><b>✦</b> BOMBONERAS</div>
+        <div class="eyebrow">
+          <span></span> CATÁLOGO OFICIAL <span></span>
+        </div>
+
+        <h1>Belleza y Cuidado <span>Profesional</span></h1>
+
+        <p>
+          Descubre nuestra selección de cosmética capilar profesional:
+          <strong>Aminoker</strong>, tratamientos, ampollas, aceites,
+          coloración y soluciones para el cuidado del cabello.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#catalogo">
+            <i class="fa-solid fa-bag-shopping"></i> Ver catálogo
+          </a>
+          <a class="btn secondary" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20información%20sobre%20sus%20productos." target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Asesoría comercial
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div><i class="fa-solid fa-box"></i><span>Catálogo profesional</span></div>
+          <div><i class="fa-solid fa-truck-fast"></i><span>Envíos nacionales</span></div>
+          <div><i class="fa-solid fa-comments"></i><span>Atención por WhatsApp</span></div>
         </div>
       </div>
+    </section>
 
-      <!-- SECCIÓN DE VIDEOS DE DEMOSTRACIÓN -->
-      <section class="section">
-        <div class="heading">
-          <div class="eyebrow">DEMOSTRACIÓN DE PRODUCTO</div>
-          <h2>Resultados <span style="color:var(--gold2)">Reales</span></h2>
-          <p>Conoce la aplicación y los beneficios de nuestras líneas de cosmética capilar en acción.</p>
-        </div>
-
-        <div class="videos-grid-container">
-          <div class="video-card-box">
-            <video autoplay muted loop playsinline controls poster="imagen0.jpeg">
-              <source src="video1.mp4" type="video/mp4">
-              Tu navegador no soporta la reproducción de video.
-            </video>
-          </div>
-
-          <div class="video-card-box">
-            <video autoplay muted loop playsinline controls poster="imagen0.jpeg">
-              <source src="video2.mp4" type="video/mp4">
-              Tu navegador no soporta la reproducción de video.
-            </video>
-          </div>
-
-          <div class="video-card-box">
-            <video autoplay muted loop playsinline controls poster="imagen0.jpeg">
-              <source src="video3.mp4" type="video/mp4">
-              Tu navegador no soporta la reproducción de video.
-            </video>
-          </div>
-
-          <div class="video-card-box">
-            <video autoplay muted loop playsinline controls poster="imagen0.jpeg">
-              <source src="video4.mp4" type="video/mp4">
-              Tu navegador no soporta la reproducción de video.
-            </video>
-          </div>
-        </div>
-      </section>
+    <div class="marquee">
+      <div class="marquee-track">
+        <div class="marquee-item"><b>✦</b> AMINOKER</div>
+        <div class="marquee-item"><b>✦</b> TRATAMIENTOS CAPILARES</div>
+        <div class="marquee-item"><b>✦</b> AMPOLLAS</div>
+        <div class="marquee-item"><b>✦</b> ACEITES CAPILARES</div>
+        <div class="marquee-item"><b>✦</b> COLORACIÓN</div>
+        <div class="marquee-item"><b>✦</b> BOMBONERAS</div>
+        <div class="marquee-item"><b>✦</b> AMINOKER</div>
+        <div class="marquee-item"><b>✦</b> TRATAMIENTOS CAPILARES</div>
+        <div class="marquee-item"><b>✦</b> AMPOLLAS</div>
+        <div class="marquee-item"><b>✦</b> ACEITES CAPILARES</div>
+        <div class="marquee-item"><b>✦</b> COLORACIÓN</div>
+        <div class="marquee-item"><b>✦</b> BOMBONERAS</div>
+      </div>
     </div>
 
-    <!-- VISTA 2: CATÁLOGO DE PRODUCTOS -->
-    <div id="section-catalogo" class="page-section">
-      <section class="section catalog-section">
-        <div class="heading">
-          <div class="eyebrow">CATÁLOGO COMPLETO</div>
-          <h2>Nuestros <span>Productos</span></h2>
-          <p>Indica la cantidad que deseas pedir de cada producto y agrégalos al carrito para generar tu pedido.</p>
-        </div>
+    <section class="section catalog-section" id="catalogo">
+      <div class="heading">
+        <div class="eyebrow">CATÁLOGO COMPLETO</div>
+        <h2>Nuestros <span>Productos</span></h2>
+        <p>Explora nuestras categorías, busca un producto y solicita información directamente por WhatsApp.</p>
+      </div>
 
-        <div class="toolbar">
-          <div class="search-wrap">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input class="search" id="search" type="search" placeholder="Buscar producto, ingrediente o beneficio..." aria-label="Buscar producto">
-          </div>
-          <div class="filters">
-            <button class="filter active" data-cat="AMINOKER">AMINOKER</button>
-            <button class="filter" data-cat="Adara">Adara</button>
-            <button class="filter" data-cat="Tratamientos">Tratamientos</button>
-            <button class="filter" data-cat="Aceites">Aceites Capilares</button>
-            <button class="filter" data-cat="Ampollas">Ampollas</button>
-            <button class="filter" data-cat="Coloracion">Coloración</button>
-            <button class="filter" data-cat="Bomboneras">Bomboneras 3.5L</button>
-          </div>
+      <div class="toolbar">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class="search" id="search" type="search" placeholder="Buscar producto, ingrediente o beneficio..." aria-label="Buscar producto">
         </div>
-        <div class="grid" id="products"></div>
-      </section>
-    </div>
+        <div class="filters">
+          <button class="filter active" data-cat="Todos">Todos</button>
+          <button class="filter" data-cat="AMINOKER">AMINOKER</button>
+          <button class="filter" data-cat="Tratamientos">Tratamientos</button>
+          <button class="filter" data-cat="Aceites">Aceites Capilares</button>
+          <button class="filter" data-cat="Ampollas">Ampollas</button>
+          <button class="filter" data-cat="Coloracion">Coloración</button>
+          <button class="filter" data-cat="Bomboneras">Bomboneras 3.5L</button>
+        </div>
+      </div>
+      <div class="grid" id="products"></div>
+    </section>
 
-    <!-- VISTA 3: LA MARCA -->
-    <div id="section-marca" class="page-section">
-      <section class="luxury">
-        <div class="section lux-grid">
-          <div>
-            <img class="lux-logo" src="imagen0.jpeg" alt="Logo JW Distribuciones">
-            <div class="eyebrow">GARANTÍA DE CALIDAD</div>
-            <h2>Distribuidores Directos de <span>Cosmética Capilar</span></h2>
-            <p>Ofrecemos productos formulados con ingredientes de primera calidad para salones de belleza y cuidado personal en casa.</p>
-            <div class="points">
-              <div class="point"><b>Envíos Nacionales</b><span>Despachos confiables a todo el país.</span></div>
-              <div class="point"><b>Asesoría Personalizada</b><span>Atención directa vía WhatsApp para tus pedidos.</span></div>
-              <div class="point"><b>Uso Profesional</b><span>Fórmulas de alto rendimiento y brillo extremo.</span></div>
-              <div class="point"><b>Precios de Distribuidor</b><span>Excelentes márgenes para mayoristas y estilistas.</span></div>
-            </div>
-          </div>
-          <div class="visual-panel">
-            <img src="imagen16.jpeg" alt="Línea Aminoker 1000ml">
-          </div>
-        </div>
-      </section>
-    </div>
+    <section class="section" id="demostracion">
+      <div class="heading">
+        <div class="eyebrow">DEMOSTRACIÓN DE PRODUCTO</div>
+        <h2>Resultados <span style="color:var(--gold2)">Reales</span></h2>
+        <p>Conoce la aplicación y los beneficios de nuestras líneas de cosmética capilar en acción.</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; border: 1px solid var(--gold); border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(215, 173, 75, 0.3); background: #030303;">
+        <video autoplay muted loop playsinline controls style="width: 100%; height: auto; display: block;" poster="imagen0.jpeg">
+          <source src="video1.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video HTML5.
+        </video>
+      </div>
+    </section>
 
-    <!-- VISTA 4: CONTACTO -->
-    <div id="section-contacto" class="page-section">
-      <section class="section">
-        <div class="contact-box">
-          <div class="eyebrow">CONTACTO COMERCIAL</div>
-          <h2>¿Necesitas hacer un pedido?</h2>
-          <p>Contáctanos directamente por WhatsApp para recibir precios al por mayor y catálogo detallado.</p>
-          <div class="hero-actions">
-            <a class="btn" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp (304 657 3720)</a>
-          </div>
-          <div class="socials">
-            <a class="social" href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a class="social" href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a class="social" href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a class="social" href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <section class="luxury" id="marca">
+      <div class="section lux-grid">
+        <div>
+          <img class="lux-logo" src="imagen0.jpeg" alt="Logo JW Distribuciones">
+          <div class="eyebrow">GARANTÍA DE CALIDAD</div>
+          <h2>Distribuidores Directos de <span>Cosmética Capilar</span></h2>
+          <p>Ofrecemos productos formulados con ingredientes de primera calidad para salones de belleza y cuidado personal en casa.</p>
+          <div class="points">
+            <div class="point"><b>Envíos Nacionales</b><span>Despachos confiables a todo el país.</span></div>
+            <div class="point"><b>Asesoría Personalizada</b><span>Atención directa vía WhatsApp para tus pedidos.</span></div>
+            <div class="point"><b>Uso Profesional</b><span>Fórmulas de alto rendimiento y brillo extremo.</span></div>
+            <div class="point"><b>Precios de Distribuidor</b><span>Excelentes márgenes para mayoristas y estilistas.</span></div>
           </div>
         </div>
-      </section>
-    </div>
+        <div class="visual-panel">
+          <img src="imagen16.jpeg" alt="Línea Aminoker 1000ml">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="contact-box">
+        <div class="eyebrow">CONTACTO COMERCIAL</div>
+        <h2>¿Necesitas hacer un pedido?</h2>
+        <p>Contáctanos directamente por WhatsApp para recibir precios al por mayor y catálogo detallado.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/573046573720" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp (304 657 3720)</a>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://wa.me/573046573720" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a class="social" href="https://www.instagram.com/jw__distribuciones?stkn=dXcwc2dmOG53ZHBl" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social" href="https://www.facebook.com/share/1cpW53UVEP/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social" href="https://www.tiktok.com/@jwdistribuciones" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <span>© 2026 <strong>JW Distribuciones</strong> · Todos los derechos reservados.</span>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DEL CARRITO -->
-  <button class="float-cart-btn" id="open-cart-float" aria-label="Ver Carrito de Compras">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span class="float-cart-count" id="cart-count-float">0</span>
-  </button>
-
-  <!-- MODAL DEL CARRITO -->
-  <div class="cart-modal-overlay" id="cart-modal">
-    <div class="cart-modal-container">
-      <div class="cart-header">
-        <h3><i class="fa-solid fa-cart-shopping"></i> Mi Carrito de Compras</h3>
-        <button class="close-cart" id="close-cart">&times;</button>
-      </div>
-      <div class="cart-body" id="cart-items-container"></div>
-      <div class="cart-footer">
-        <div class="cart-total-wrap">
-          <span>Total Unidades:</span>
-          <strong id="cart-total-qty">0</strong>
-        </div>
-        <button class="btn-checkout" id="send-whatsapp-order">
-          <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar a WhatsApp
-        </button>
-      </div>
-    </div>
-  </div>
+  <a class="float-wa" href="https://wa.me/573046573720?text=Hola%20JW%20Distribuciones%2C%20quiero%20más%20información%20del%20catálogo." target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <script src="js/main.js"></script>
 </body>
