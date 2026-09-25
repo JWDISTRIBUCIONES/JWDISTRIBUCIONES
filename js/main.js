@@ -198,10 +198,10 @@ const products = [
   }
 ];
 
-// ESTADO DE LA TIENDA
+// ESTADO DE LA TIENDA (CATEGORÍA ADARA POR DEFECTO)
 let cart = [];
 let productQuantities = {};
-let selectedCategory = 'Todos';
+let selectedCategory = 'ADARA';
 
 products.forEach(p => { productQuantities[p.id] = 1; });
 
@@ -270,7 +270,7 @@ function adjustCatalogQty(productId, delta) {
 function renderProducts() {
   const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const filtered = products.filter(p => {
-    const matchesCategory = (selectedCategory === 'Todos' || p.cat === selectedCategory);
+    const matchesCategory = (p.cat === selectedCategory);
     const matchesSearch = (p.name + ' ' + p.desc + ' ' + p.cat).toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
@@ -279,8 +279,8 @@ function renderProducts() {
 
   let htmlContent = '';
 
-  // SI SE SELECCIONA LA CATEGORÍA ADARA O SE BUSCA "ADARA", MOSTRAR LA TARJETA DE INFOGRAFÍA AL PRINCIPIO
-  if ((selectedCategory === 'ADARA' || q.includes('adara')) && selectedCategory !== 'Todos') {
+  // MOSTRAR LA TARJETA DE INFOGRAFÍA CUANDO SE ESTÁ EN ADARA
+  if (selectedCategory === 'ADARA') {
     htmlContent += `
       <article class="card adara-info-card">
         <div class="card-visual">
@@ -303,7 +303,7 @@ function renderProducts() {
   }
 
   if (filtered.length === 0 && htmlContent === '') {
-    productsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">No se encontraron productos que coincidan con la búsqueda.</div>';
+    productsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">No se encontraron productos en esta categoría.</div>';
     return;
   }
 
