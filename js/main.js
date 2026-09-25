@@ -1,6 +1,6 @@
 // --- CATÁLOGO DE PRODUCTOS ---
 const products = [
-  // --- LÍNEA AMINOKER (PRIMERO) ---
+  // --- LÍNEA AMINOKER (PRIMERA CATEGORÍA) ---
   {
     id: 1,
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
@@ -59,7 +59,7 @@ const products = [
     name: "Aceite Capilar Cebolla & Romero Nutribell",
     cat: "Aceites",
     img: "imagen0.jpeg",
-    desc: "Fortalece, regenera, aporta brillo, suavidad y controls el frizz."
+    desc: "Fortalece, regenera, aporta brillo, suavidad y controla el frizz."
   },
   {
     id: 6,
@@ -211,7 +211,7 @@ const products = [
   }
 ];
 
-// ESTADO DE LA TIENDA (CATEGORÍA AMINOKER SELECCIONADA POR DEFECTO)
+// ESTADO DE LA TIENDA (INICIA CON AMINOKER SELECCIONADO POR DEFECTO)
 let cart = [];
 let productQuantities = {};
 let selectedCategory = 'AMINOKER';
@@ -234,7 +234,7 @@ const cartCountFloat = document.getElementById('cart-count-float');
 const cartTotalQty = document.getElementById('cart-total-qty');
 const sendWhatsappBtn = document.getElementById('send-whatsapp-order');
 
-// CAMBIO DE VISTAS EN EL MENÚ
+// CAMBIO DE VISTAS EN EL MENÚ PRINCIPAL
 function switchSection(targetSectionId) {
   document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
   document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-active'));
@@ -259,7 +259,7 @@ if (menu) {
   });
 }
 
-// FILTRADO POR CATEGORÍAS
+// FILTRADO POR CATEGORÍAS EN EL CATÁLOGO
 document.querySelectorAll('.filter').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -292,7 +292,7 @@ function renderProducts() {
 
   let htmlContent = '';
 
-  // MOSTRAR LA TARJETA DE INFOGRAFÍA CUANDO SE ESTÁ EN ADARA
+  // INFOGRAFÍA DESTACADA PARA LA CATEGORÍA ADARA
   if (selectedCategory === 'Adara') {
     htmlContent += `
       <article class="card adara-info-card">
