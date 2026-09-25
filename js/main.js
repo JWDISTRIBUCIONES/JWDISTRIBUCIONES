@@ -46,26 +46,26 @@ const products = [
     desc: "Kit completo Adara Luz de tu Belleza. Incluye Shampoo de uso diario y Tratamiento 2 en 1. Fórmula natural con Ácido Láctico y Frutos Rojos para cuidado integral capilar."
   },
 
-  // --- LÍNEA JW ---
+  // --- LÍNEA JW (CON IMAGEN lineaJW.jpeg) ---
   {
     id: 29,
-    name: "Tratamiento Capilar Keratina Líquida JW (500 ml)",
+    name: "Tratamiento Color Tono Sobre Tono - Beige Perla (30ml)",
     cat: "Linea JW",
-    img: "imagen0.jpeg",
-    desc: "Fórmula exclusiva JW Distribuciones. Restaura la fibra capilar maltratada, controla el encrespamiento y devuelve el brillo natural con aminoácidos concentrados."
+    img: "lineaJW.jpeg",
+    desc: "Tratamiento intensivo con pigmentos que aporta hidratación y brillo. Protege e intensifica el color del cabello tinturado, logrando un tono Beige Perla luminoso y radiante."
   },
   {
     id: 30,
     name: "Mascarilla Capilar Nutritiva e Hidratante JW (1.000 ml)",
     cat: "Linea JW",
-    img: "imagen0.jpeg",
+    img: "lineaJW.jpeg",
     desc: "Tratamiento intensivo con óleos finos y proteínas. Rellena la hebra porosa dejando el cabello suave, manejable y totalmente protegido."
   },
   {
     id: 31,
     name: "Gotas de Brillo & Termoprotección JW (120 ml)",
     cat: "Linea JW",
-    img: "imagen0.jpeg",
+    img: "lineaJW.jpeg",
     desc: "Protege contra las altas temperaturas de planchas y secadores. Sella las puntas abiertas dando un acabado sedoso y con brillo espejo."
   },
 
