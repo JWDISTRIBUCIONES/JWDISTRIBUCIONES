@@ -263,7 +263,7 @@ if (menu) {
   });
 }
 
-// SELECCIÓN DE BURBUJAS DE CATEGORÍA
+// SELECCIÓN DE BURBUJAS DE CATEGORÍA EN EL CATÁLOGO
 document.querySelectorAll('.cat-circle-item').forEach(item => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.cat-circle-item').forEach(c => c.classList.remove('active'));
