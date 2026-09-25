@@ -1,26 +1,6 @@
 // --- CATÁLOGO DE PRODUCTOS ---
 const products = [
-  {
-    id: 26,
-    name: "Shampoo ADARA Vinagre Capilar Frutos Rojos (300 ml)",
-    cat: "ADARA",
-    img: "video2 (16).jpeg",
-    desc: "Shampoo de uso diario a partir de 3 años. SIN SAL, SIN SULFATOS y SIN PARABENOS. Con Ácido Láctico y Vinagre de Frutos Rojos. Elimina la caspa, neutraliza olores, controla el pH y fortalece el cabello."
-  },
-  {
-    id: 27,
-    name: "Tratamiento 2 en 1 ADARA Vinagre Capilar (300 ml)",
-    cat: "ADARA",
-    img: "video2 (16).jpeg",
-    desc: "Repolarizador y Termoprotector 2 en 1. Controla y neutraliza el pH del cuero cabelludo. Protege contra el calor de secadores/planchas, previene la caída y promueve el crecimiento."
-  },
-  {
-    id: 28,
-    name: "Dúo Kit ADARA Vinagre Capilar (Shampoo + Tratamiento 300ml)",
-    cat: "ADARA",
-    img: "video2 (16).jpeg",
-    desc: "Kit completo ADARA Luz de tu Belleza. Incluye Shampoo de uso diario y Tratamiento 2 en 1. Fórmula natural con Ácido Láctico y Frutos Rojos para cuidado integral capilar."
-  },
+  // --- LÍNEA AMINOKER (PRIMERO) ---
   {
     id: 1,
     name: "Kit Aminoker Profesional 2.000 ml (Shampoo + Alisador + Sellante)",
@@ -42,6 +22,31 @@ const products = [
     img: "imagen15.jpeg",
     desc: "Aminoácido + AMINOKER en sachet. Alisado profesional libre de formaldehído e hidróxido de sodio. Incluye Shampoo Dilatador, Aminoácido AMINOKER y Mascarilla Sellante."
   },
+
+  // --- LÍNEA ADARA ---
+  {
+    id: 26,
+    name: "Shampoo Adara Vinagre Capilar Frutos Rojos (300 ml)",
+    cat: "Adara",
+    img: "video2 (16).jpeg",
+    desc: "Shampoo de uso diario a partir de 3 años. SIN SAL, SIN SULFATOS y SIN PARABENOS. Con Ácido Láctico y Vinagre de Frutos Rojos. Elimina la caspa, neutraliza olores, controla el pH y fortalece el cabello."
+  },
+  {
+    id: 27,
+    name: "Tratamiento 2 en 1 Adara Vinagre Capilar (300 ml)",
+    cat: "Adara",
+    img: "video2 (16).jpeg",
+    desc: "Repolarizador y Termoprotector 2 en 1. Controla y neutraliza el pH del cuero cabelludo. Protege contra el calor de secadores/planchas, previene la caída y promueve el crecimiento."
+  },
+  {
+    id: 28,
+    name: "Dúo Kit Adara Vinagre Capilar (Shampoo + Tratamiento 300ml)",
+    cat: "Adara",
+    img: "video2 (16).jpeg",
+    desc: "Kit completo Adara Luz de tu Belleza. Incluye Shampoo de uso diario y Tratamiento 2 en 1. Fórmula natural con Ácido Láctico y Frutos Rojos para cuidado integral capilar."
+  },
+
+  // --- ACEITES ---
   {
     id: 4,
     name: "Kerasolis Serum Nutritivo 10 Óleos (60 ml)",
@@ -54,7 +59,7 @@ const products = [
     name: "Aceite Capilar Cebolla & Romero Nutribell",
     cat: "Aceites",
     img: "imagen0.jpeg",
-    desc: "Fortalece, regenera, aporta brillo, suavidad y controla el frizz."
+    desc: "Fortalece, regenera, aporta brillo, suavidad y controls el frizz."
   },
   {
     id: 6,
@@ -63,6 +68,8 @@ const products = [
     img: "imagen0.jpeg",
     desc: "Hidrata, regenera y repara puntas abiertas retrasando el envejecimiento capilar."
   },
+
+  // --- BOMBONERAS ---
   {
     id: 7,
     name: "Bombonera Kerasolis Bomba Rizos Activos 3 en 1 (3.200 ml)",
@@ -91,6 +98,8 @@ const products = [
     img: "imagen0.jpeg",
     desc: "Evita la caída del cabello, fortalece el folículo piloso y estimula el crecimiento con acción antiedad."
   },
+
+  // --- AMPOLLAS ---
   {
     id: 11,
     name: "Shots Farma Belleza - Aminoácidos Reconstructores (20 ml)",
@@ -147,6 +156,8 @@ const products = [
     img: "imagen5.jpeg",
     desc: "Nutrición e hidratación intensa con placenta de ovejo. Actúa como un escudo protector contra la resequedad y el frizz."
   },
+
+  // --- TRATAMIENTOS ---
   {
     id: 19,
     name: "Tratamiento Tono sobre Tono (Caja x 24 Sachets 30ml)",
@@ -182,6 +193,8 @@ const products = [
     img: "imagen0.jpeg",
     desc: "Limpia, suaviza y restaura daños ocasionados por agentes externos con aloe vera y aguacate."
   },
+
+  // --- COLORACIÓN ---
   {
     id: 24,
     name: "Decolorante en Polvo Perfect Blond Belotti (450g)",
@@ -198,10 +211,10 @@ const products = [
   }
 ];
 
-// ESTADO DE LA TIENDA (CATEGORÍA ADARA POR DEFECTO)
+// ESTADO DE LA TIENDA (CATEGORÍA AMINOKER SELECCIONADA POR DEFECTO)
 let cart = [];
 let productQuantities = {};
-let selectedCategory = 'ADARA';
+let selectedCategory = 'AMINOKER';
 
 products.forEach(p => { productQuantities[p.id] = 1; });
 
@@ -280,15 +293,15 @@ function renderProducts() {
   let htmlContent = '';
 
   // MOSTRAR LA TARJETA DE INFOGRAFÍA CUANDO SE ESTÁ EN ADARA
-  if (selectedCategory === 'ADARA') {
+  if (selectedCategory === 'Adara') {
     htmlContent += `
       <article class="card adara-info-card">
         <div class="card-visual">
-          <img src="video2 (16).jpeg" alt="ADARA Luz de tu Belleza Infografía" loading="lazy">
+          <img src="video2 (16).jpeg" alt="Adara Luz de tu Belleza Infografía" loading="lazy">
         </div>
         <div class="card-body">
           <span class="tag">INFOGRAFÍA DE LÍNEA</span>
-          <h3>ADARA - Luz de tu Belleza</h3>
+          <h3>Adara - Luz de tu Belleza</h3>
           <p>Fórmula especializada para el cuidado integral del cuero cabelludo y la fibra capilar.</p>
           <ul class="adara-bullet-list">
             <li><i class="fa-solid fa-check"></i> Uso diario desde los 3 años de edad.</li>
