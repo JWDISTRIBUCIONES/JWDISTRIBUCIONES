@@ -211,7 +211,7 @@ const products = [
   }
 ];
 
-// ESTADO DE LA TIENDA
+// ESTADO DE LA TIENDA (INICIA CON AMINOKER SELECCIONADO POR DEFECTO)
 let cart = [];
 let productQuantities = {};
 let selectedCategory = 'AMINOKER';
@@ -233,10 +233,6 @@ const cartCountNav = document.getElementById('cart-count-nav');
 const cartCountFloat = document.getElementById('cart-count-float');
 const cartTotalQty = document.getElementById('cart-total-qty');
 const sendWhatsappBtn = document.getElementById('send-whatsapp-order');
-
-// DETALLE DE PRODUCTO EXPANDIBLE
-let currentDetailProduct = null;
-let currentDetailQty = 1;
 
 // CAMBIO DE VISTAS EN EL MENÚ PRINCIPAL
 function switchSection(targetSectionId) {
@@ -263,44 +259,25 @@ if (menu) {
   });
 }
 
-// SELECCIÓN DE BURBUJAS DE CATEGORÍA EN EL CATÁLOGO
-document.querySelectorAll('.cat-circle-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.cat-circle-item').forEach(c => c.classList.remove('active'));
-    item.classList.add('active');
-    selectedCategory = item.dataset.cat;
+// FILTRADO POR CATEGORÍAS EN EL CATÁLOGO
+document.querySelectorAll('.filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedCategory = btn.dataset.cat;
     renderProducts();
   });
 });
 
 if (searchInput) searchInput.addEventListener('input', renderProducts);
 
-function adjustCatalogQty(productId, delta, event) {
-  if (event) event.stopPropagation(); // Evita abrir el modal al hacer clic en + / -
+function adjustCatalogQty(productId, delta) {
   if (!productQuantities[productId]) productQuantities[productId] = 1;
   productQuantities[productId] += delta;
   if (productQuantities[productId] < 1) productQuantities[productId] = 1;
 
   const qtyElement = document.getElementById(`catalog-qty-${productId}`);
   if (qtyElement) qtyElement.textContent = productQuantities[productId];
-}
-
-function openProductDetail(productId) {
-  const product = products.find(p => p.id === productId);
-  if (!product) return;
-
-  currentDetailProduct = product;
-  currentDetailQty = productQuantities[productId] || 1;
-
-  document.getElementById('detail-img').src = product.img;
-  document.getElementById('detail-cat').textContent = product.cat;
-  document.getElementById('detail-title').textContent = product.name;
-  document.getElementById('detail-summary-text').textContent = product.desc;
-  document.getElementById('detail-accordion-desc').textContent = product.desc;
-  document.getElementById('detail-qty-val').textContent = currentDetailQty;
-
-  const modal = document.getElementById('product-detail-modal');
-  if (modal) modal.classList.add('active');
 }
 
 function renderProducts() {
@@ -346,7 +323,7 @@ function renderProducts() {
   htmlContent += filtered.map(p => {
     const qty = productQuantities[p.id] || 1;
     return `
-      <article class="card" onclick="openProductDetail(${p.id})">
+      <article class="card">
         <div class="card-visual">
           <img src="${p.img}" alt="${p.name}" loading="lazy">
         </div>
@@ -358,13 +335,13 @@ function renderProducts() {
           <div class="catalog-qty-box">
             <span class="qty-label">Cantidad a pedir:</span>
             <div class="qty-controls">
-              <button onclick="adjustCatalogQty(${p.id}, -1, event)">-</button>
+              <button onclick="adjustCatalogQty(${p.id}, -1)">-</button>
               <span id="catalog-qty-${p.id}">${qty}</span>
-              <button onclick="adjustCatalogQty(${p.id}, 1, event)">+</button>
+              <button onclick="adjustCatalogQty(${p.id}, 1)">+</button>
             </div>
           </div>
 
-          <button class="card-link" onclick="addToCart(${p.id}, event)">
+          <button class="card-link" onclick="addToCart(${p.id})">
             <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
           </button>
         </div>
@@ -375,8 +352,7 @@ function renderProducts() {
   productsGrid.innerHTML = htmlContent;
 }
 
-function addToCart(productId, event) {
-  if (event) event.stopPropagation();
+function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
 
@@ -454,31 +430,6 @@ function closeCart() { if (cartModal) cartModal.classList.remove('active'); }
 if (openCartNav) openCartNav.addEventListener('click', openCart);
 if (openCartFloat) openCartFloat.addEventListener('click', openCart);
 if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
-
-// EVENTOS DE CONTROL DEL MODAL DETALLE
-document.getElementById('close-product-detail')?.addEventListener('click', () => {
-  document.getElementById('product-detail-modal')?.classList.remove('active');
-});
-
-document.getElementById('detail-qty-minus')?.addEventListener('click', () => {
-  if (currentDetailQty > 1) {
-    currentDetailQty--;
-    document.getElementById('detail-qty-val').textContent = currentDetailQty;
-  }
-});
-
-document.getElementById('detail-qty-plus')?.addEventListener('click', () => {
-  currentDetailQty++;
-  document.getElementById('detail-qty-val').textContent = currentDetailQty;
-});
-
-document.getElementById('detail-add-to-cart')?.addEventListener('click', () => {
-  if (currentDetailProduct) {
-    productQuantities[currentDetailProduct.id] = currentDetailQty;
-    addToCart(currentDetailProduct.id);
-    document.getElementById('product-detail-modal')?.classList.remove('active');
-  }
-});
 
 if (cartModal) {
   cartModal.addEventListener('click', (e) => {
